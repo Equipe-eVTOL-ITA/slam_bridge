@@ -1,0 +1,28 @@
+rgbd_odometry:
+  ros__parameters:
+    frame_id: 'oak_rgb_camera_optical_frame'
+    approx_sync: true
+    approx_sync_max_interval: 0.05
+    qos_image: 1
+    qos_camera_info: 1
+    
+    # --- FIX: Prevent old frames from waiting in line ---
+    queue_size: 10                 
+    sync_queue_size: 10            
+    
+    # --- COMPUTE SPEED OPTIMIZATIONS (Saves CPU cycles per frame) ---
+    Odom/ResetCountdown: '5'       
+    Vis/MinInliers: '10'            
+    Vis/MaxFeatures: '600'         # Lowered from 600 to 400 (Faster matching on Jetson)
+    Odom/Strategy: '0'             # 0 = Frame-to-Map (Best for localization tracking)
+    always_check_imu_tf: false
+    
+    # Add these to limit visual match search loops:
+    Vis/EstimationType: '1'        # 1 = PnP (Fastest transformation calculation method)
+    Vis/CorFlowWinSize: '11'       # Smaller search window size for faster execution
+
+    wait_imu_to_init: false          # Aguarda IMU estabilizar antes de iniciar
+    imu_tf_prefix: ""               # Prefixo do frame do IMU (vazio = padrão)
+    RGBD/IMUUpdateInterval: "0.01"  # Intervalo de update do IMU (segundos)
+
+    

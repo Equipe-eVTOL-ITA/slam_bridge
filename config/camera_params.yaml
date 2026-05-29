@@ -1,0 +1,22 @@
+/oak:
+  ros__parameters:
+    camera:
+      # --- Pipeline Control ---
+      i_nn_type: "none"
+      i_pipeline_type: "RGBD"
+      i_max_q_size: 2
+      
+      # --- Global Hardware Sync ---
+      i_enable_sync: true
+      
+      # --- RGB Configuration ---
+      i_rgb_fps: 60.0
+      i_rgb_resolution: "720p"     
+      i_rgb_synced: true           # Driver variant parameter naming
+      
+      # --- Stereo / Depth Configuration ---
+      i_stereo_fps: 3.0
+      i_left_rect_publish_topic: true
+      i_right_rect_publish_topic: true
+      i_stereo_synced: true        # Driver variant parameter naming
+      i_depth_preset: "HIGH_SPEED"

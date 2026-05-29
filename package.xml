@@ -7,12 +7,21 @@
     <license>Apache-2.0</license>
 
     <buildtool_depend>ament_cmake</buildtool_depend>
+    <buildtool_depend>ament_cmake_python</buildtool_depend>
 
     <depend>rclcpp</depend>
     <depend>geometry_msgs</depend>
-    <depend>px4_ros2_cpp</depend>
+    <depend>nav_msgs</depend>
+    <depend>px4_msgs</depend>
+    <!-- <depend>px4_ros2_cpp</depend> -->
     <depend>eigen3_cmake_module</depend>
     <depend>Eigen3</depend>
+    <depend>launch_ros</depend>
+    <depend>depthai_ros_driver</depend>
+    <depend>imu_filter_madgwick</depend>
+    <depend>rtabmap_odom</depend>
+    <depend>rtabmap_slam</depend>
+    <depend>tf2_ros</depend>
 
     <export>
         <build_type>ament_cmake</build_type>
