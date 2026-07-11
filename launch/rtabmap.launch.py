@@ -93,18 +93,21 @@ def generate_launch_description():
                'oak_imu_frame'],                # frame filho
 )
 
-    # SLAM Bridge node - converts RTAB-Map odometry to PX4 format
-    slam_bridge_node = Node(
-        package='slam_bridge',
-        executable='slam_bridge',
-        name='slam_bridge',
-        output='screen',
-        parameters=[{
-            'slam_odometry_topic': '/slam/odometry',
-            'px4_odometry_output_topic': '/fmu/in/vehicle_visual_odometry',
-            'timesync_topic': '/fmu/out/timesync_status',
-            'variance_floor': 0.1,
-        }]
+    # SLAM Bridge node - converts RTAB-Map odometry to PX4 format (delayed start)
+    slam_bridge_node = TimerAction(
+        period=3.0,
+        actions=[Node(
+            package='slam_bridge',
+            executable='slam_bridge',
+            name='slam_bridge',
+            output='screen',
+            parameters=[{
+                'slam_odometry_topic': '/odom_local',
+                'px4_odometry_output_topic': '/fmu/in/vehicle_visual_odometry',
+                'timesync_topic': '/fmu/out/timesync_status',
+                'variance_floor': 0.1,
+            }]
+        )]
     )
 
     return LaunchDescription([
