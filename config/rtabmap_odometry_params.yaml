@@ -7,7 +7,7 @@ rgbd_odometry:
     # slam_bridge ENU->NED conversion relies on.
     frame_id: 'oak'
     approx_sync: true
-    approx_sync_max_interval: 0.02   # ~half a frame period at 30 fps
+    approx_sync_max_interval: 0.034  # ~half a frame period at 15 fps (rgb+depth are hw-synced anyway)
     qos_image: 1
     qos_camera_info: 1
 

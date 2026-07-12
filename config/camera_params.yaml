@@ -10,12 +10,17 @@
       i_enable_sync: true        # Hardware-sync RGB + depth timestamps
 
     rgb:
-      i_resolution: '720'
-      i_fps: 30.0                # Must match stereo fps for sync to work
+      # IMX378 only supports '1080'/'4k'/'12mp'. '720' is INVALID and was
+      # silently falling back to full 1080P ("Resolution 720 not supported").
+      # Downscale on-device via ISP so we ship ~1280x720 over USB instead of
+      # 1080P: less USB bandwidth and less Jetson decode/convert cost.
+      i_resolution: '1080'
+      i_set_isp_scale: true      # default 2/3 scale -> 1280x720 (camera_info is adjusted to match)
+      i_fps: 15.0                # Must match stereo fps for sync; odom only keeps up at a few Hz anyway
       i_max_q_size: 2
 
     stereo:
-      i_fps: 30.0
+      i_fps: 15.0
       i_align_depth: true        # Depth registered to the RGB frame (required by rtabmap RGBD)
-      i_depth_preset: HIGH_ACCURACY  # Runs on-device, costs no Jetson CPU
+      i_depth_preset: HIGH_SPEED # Lower on-device latency than HIGH_ACCURACY -> smaller odom delay
       i_max_q_size: 2

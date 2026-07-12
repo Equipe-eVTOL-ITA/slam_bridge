@@ -1,0 +1,800 @@
+[INFO] [launch]: All log files can be found below /home/jetson-evtol/.ros/log/2026-07-12-14-34-34-294733-ubuntu-11546
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [component_container-1]: process started with pid [11574]
+[INFO] [imu_filter_madgwick_node-2]: process started with pid [11576]
+[INFO] [rgbd_odometry-3]: process started with pid [11578]
+[INFO] [rtabmap-4]: process started with pid [11580]
+[imu_filter_madgwick_node-2] [INFO] [1783877674.976407769] [imu_filter]: Starting ImuFilter
+[imu_filter_madgwick_node-2] [INFO] [1783877674.976880735] [imu_filter]: Using dt computed from message headers
+[imu_filter_madgwick_node-2] [INFO] [1783877674.976919776] [imu_filter]: The gravity vector is kept in the IMU message.
+[imu_filter_madgwick_node-2] [INFO] [1783877674.977032002] [imu_filter]: Imu filter gain set to 0.010000
+[imu_filter_madgwick_node-2] [INFO] [1783877674.977064546] [imu_filter]: Gyro drift bias set to 0.000000
+[imu_filter_madgwick_node-2] [INFO] [1783877674.977077922] [imu_filter]: Magnetometer bias values: 0.000000 0.000000 0.000000
+[component_container-1] [INFO] [1783877675.063475908] [oak_container]: Load Library: /opt/ros/humble/lib/librobot_state_publisher_node.so
+[component_container-1] [INFO] [1783877675.068752846] [oak_container]: Found class: rclcpp_components::NodeFactoryTemplate<robot_state_publisher::RobotStatePublisher>
+[component_container-1] [INFO] [1783877675.068867056] [oak_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<robot_state_publisher::RobotStatePublisher>
+[component_container-1] [INFO] [1783877675.087115025] [oak_state_publisher]: got segment oak
+[component_container-1] [INFO] [1783877675.087222483] [oak_state_publisher]: got segment oak-d-base-frame
+[component_container-1] [INFO] [1783877675.087243571] [oak_state_publisher]: got segment oak_imu_frame
+[component_container-1] [INFO] [1783877675.087254355] [oak_state_publisher]: got segment oak_left_camera_frame
+[component_container-1] [INFO] [1783877675.087263859] [oak_state_publisher]: got segment oak_left_camera_optical_frame
+[component_container-1] [INFO] [1783877675.087272563] [oak_state_publisher]: got segment oak_model_origin
+[component_container-1] [INFO] [1783877675.087280819] [oak_state_publisher]: got segment oak_rgb_camera_frame
+[component_container-1] [INFO] [1783877675.087289651] [oak_state_publisher]: got segment oak_rgb_camera_optical_frame
+[component_container-1] [INFO] [1783877675.087298836] [oak_state_publisher]: got segment oak_right_camera_frame
+[component_container-1] [INFO] [1783877675.087306804] [oak_state_publisher]: got segment oak_right_camera_optical_frame
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/oak_state_publisher' in container '/oak_container'
+[component_container-1] [INFO] [1783877675.163456901] [oak_container]: Load Library: /opt/ros/humble/lib/libdepthai_ros_driver.so
+[component_container-1] [INFO] [1783877675.326485438] [oak_container]: Found class: rclcpp_components::NodeFactoryTemplate<depthai_ros_driver::Camera>
+[component_container-1] [INFO] [1783877675.328311768] [oak_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<depthai_ros_driver::Camera>
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/oak' in container '/oak_container'
+[component_container-1] [INFO] [1783877675.346917182] [oak_container]: Load Library: /opt/ros/humble/lib/librectify.so
+[component_container-1] [INFO] [1783877675.351209147] [oak_container]: Found class: rclcpp_components::NodeFactoryTemplate<image_proc::RectifyNode>
+[component_container-1] [INFO] [1783877675.352306858] [oak_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<image_proc::RectifyNode>
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/rectify_color_node' in container '/oak_container'
+[rgbd_odometry-3] [INFO] [1783877675.682418198] [rgbd_odometry]: Odometry: frame_id               = oak
+[rgbd_odometry-3] [INFO] [1783877675.682871645] [rgbd_odometry]: Odometry: odom_frame_id          = odom
+[rgbd_odometry-3] [INFO] [1783877675.682899805] [rgbd_odometry]: Odometry: publish_tf             = true
+[rgbd_odometry-3] [INFO] [1783877675.682913053] [rgbd_odometry]: Odometry: wait_for_transform     = 0.100000
+[rgbd_odometry-3] [INFO] [1783877675.682934014] [rgbd_odometry]: Odometry: log_to_rosout_level    = 4
+[rgbd_odometry-3] [INFO] [1783877675.683005823] [rgbd_odometry]: Odometry: initial_pose           = xyz=0.000000,0.000000,0.000000 rpy=0.000000,-0.000000,0.000000
+[rgbd_odometry-3] [INFO] [1783877675.683027487] [rgbd_odometry]: Odometry: ground_truth_frame_id  = 
+[rgbd_odometry-3] [INFO] [1783877675.683043327] [rgbd_odometry]: Odometry: ground_truth_base_frame_id = oak
+[rgbd_odometry-3] [INFO] [1783877675.683056607] [rgbd_odometry]: Odometry: config_path            = 
+[rgbd_odometry-3] [INFO] [1783877675.683067104] [rgbd_odometry]: Odometry: publish_null_when_lost = true
+[rgbd_odometry-3] [INFO] [1783877675.683076960] [rgbd_odometry]: Odometry: publish_compressed_sensor_data = false
+[rgbd_odometry-3] [INFO] [1783877675.683085760] [rgbd_odometry]: Odometry: guess_frame_id         = 
+[rgbd_odometry-3] [INFO] [1783877675.683094688] [rgbd_odometry]: Odometry: guess_min_translation  = 0.000000
+[rgbd_odometry-3] [INFO] [1783877675.683104928] [rgbd_odometry]: Odometry: guess_min_rotation     = 0.000000
+[rgbd_odometry-3] [INFO] [1783877675.683114496] [rgbd_odometry]: Odometry: guess_min_time         = 0.000000
+[rgbd_odometry-3] [INFO] [1783877675.683124128] [rgbd_odometry]: Odometry: expected_update_rate   = 0.000000 Hz
+[rgbd_odometry-3] [INFO] [1783877675.683133665] [rgbd_odometry]: Odometry: max_update_rate        = 0.000000 Hz
+[rgbd_odometry-3] [INFO] [1783877675.683142977] [rgbd_odometry]: Odometry: min_update_rate        = 0.000000 Hz
+[rgbd_odometry-3] [INFO] [1783877675.683152193] [rgbd_odometry]: Odometry: wait_imu_to_init       = true
+[rgbd_odometry-3] [INFO] [1783877675.683168097] [rgbd_odometry]: Odometry: always_check_imu_tf    = false
+[rgbd_odometry-3] [INFO] [1783877675.683178529] [rgbd_odometry]: Odometry: sensor_data_compression_format = .jpg
+[rgbd_odometry-3] [INFO] [1783877675.683187105] [rgbd_odometry]: Odometry: sensor_data_parallel_compression = true
+[rgbd_odometry-3] [INFO] [1783877675.683205954] [rgbd_odometry]: Odometry: stereoParams_=0 visParams_=1 icpParams_=0
+[rgbd_odometry-3] [INFO] [1783877675.685006203] [rgbd_odometry]: Setting odometry parameter "Odom/ImageDecimation"="2"
+[rgbd_odometry-3] [INFO] [1783877675.685191838] [rgbd_odometry]: Setting odometry parameter "Odom/ResetCountdown"="5"
+[rgbd_odometry-3] [INFO] [1783877675.690493352] [rgbd_odometry]: Setting odometry parameter "Vis/CorFlowWinSize"="11"
+[rgbd_odometry-3] [INFO] [1783877675.691033104] [rgbd_odometry]: Setting odometry parameter "Vis/MaxFeatures"="400"
+[rgbd_odometry-3] [INFO] [1783877675.691151186] [rgbd_odometry]: Setting odometry parameter "Vis/MinInliers"="10"
+[rgbd_odometry-3] [INFO] [1783877675.707577113] [rgbd_odometry]: odometry: Subscribing to IMU topic /imu/data
+[rgbd_odometry-3] [INFO] [1783877675.707666682] [rgbd_odometry]: odometry: qos_imu = 0
+[rgbd_odometry-3] [INFO] [1783877675.707686107] [rgbd_odometry]: odometry: imu_queue_size = 200
+[rgbd_odometry-3] [WARN] [1783877675.710265087] [rgbd_odometry]: Parameter "queue_size" has been renamed to "sync_queue_size" and will be removed in future versions! The value (10) is copied to "sync_queue_size".
+[rgbd_odometry-3] [INFO] [1783877675.710608836] [rgbd_odometry]: RGBDOdometry: approx_sync    = true
+[rgbd_odometry-3] [INFO] [1783877675.710642692] [rgbd_odometry]: RGBDOdometry: approx_sync_max_interval = 0.020000
+[rgbd_odometry-3] [INFO] [1783877675.710666469] [rgbd_odometry]: RGBDOdometry: topic_queue_size = 10
+[rgbd_odometry-3] [INFO] [1783877675.710677125] [rgbd_odometry]: RGBDOdometry: sync_queue_size  = 10
+[rgbd_odometry-3] [INFO] [1783877675.710686853] [rgbd_odometry]: RGBDOdometry: qos             = 0
+[rgbd_odometry-3] [INFO] [1783877675.710696421] [rgbd_odometry]: RGBDOdometry: qos_camera_info = 1
+[rgbd_odometry-3] [INFO] [1783877675.710706309] [rgbd_odometry]: RGBDOdometry: subscribe_rgbd = false
+[rgbd_odometry-3] [INFO] [1783877675.710715301] [rgbd_odometry]: RGBDOdometry: rgbd_cameras   = 1
+[rgbd_odometry-3] [INFO] [1783877675.710724101] [rgbd_odometry]: RGBDOdometry: keep_color     = false
+[rgbd_odometry-3] [INFO] [1783877675.710733733] [rgbd_odometry]: RGBDOdometry: rgb_transport   = raw
+[rgbd_odometry-3] [INFO] [1783877675.710741958] [rgbd_odometry]: RGBDOdometry: depth_transport = raw
+[rgbd_odometry-3] [INFO] [1783877675.723226550] [rgbd_odometry]: 
+[rgbd_odometry-3] rgbd_odometry subscribed to (approx sync, max interval=0.020000s, topic_queue_size=10, sync_queue_size=10):
+[rgbd_odometry-3]    /oak/rgb/image_raw,
+[rgbd_odometry-3]    /oak/stereo/image_raw,
+[rgbd_odometry-3]    /oak/rgb/camera_info
+[rtabmap-4] [WARN] [1783877675.736927543] [rtabmap]: Parameter "queue_size" has been renamed to "sync_queue_size" and will be removed in future versions! The value (10) is copied to "sync_queue_size".
+[rtabmap-4] [INFO] [1783877675.739404538] [rtabmap]: rtabmap(maps): latch                      = true
+[rtabmap-4] [INFO] [1783877675.739482523] [rtabmap]: rtabmap(maps): map_filter_radius          = 0.000000
+[rtabmap-4] [INFO] [1783877675.739508059] [rtabmap]: rtabmap(maps): map_filter_angle           = 30.000000
+[rtabmap-4] [INFO] [1783877675.739525787] [rtabmap]: rtabmap(maps): map_cleanup                = true
+[rtabmap-4] [INFO] [1783877675.739536827] [rtabmap]: rtabmap(maps): map_always_update          = false
+[rtabmap-4] [INFO] [1783877675.739547004] [rtabmap]: rtabmap(maps): map_empty_ray_tracing      = true
+[rtabmap-4] [INFO] [1783877675.739557244] [rtabmap]: rtabmap(maps): cloud_output_voxelized     = true
+[rtabmap-4] [INFO] [1783877675.739567388] [rtabmap]: rtabmap(maps): cloud_subtract_filtering   = false
+[rtabmap-4] [INFO] [1783877675.739577244] [rtabmap]: rtabmap(maps): cloud_subtract_filtering_min_neighbors = 2
+[rtabmap-4] [INFO] [1783877675.739644925] [rtabmap]: rtabmap(maps): octomap_tree_depth         = 16
+[rtabmap-4] [INFO] [1783877675.773027251] [rtabmap]: rtabmap: frame_id      = oak
+[rtabmap-4] [INFO] [1783877675.773113941] [rtabmap]: rtabmap: map_frame_id  = map
+[rtabmap-4] [INFO] [1783877675.773130869] [rtabmap]: rtabmap: log_to_rosout_level  = 4
+[rtabmap-4] [INFO] [1783877675.773143733] [rtabmap]: rtabmap: initial_pose  = 
+[rtabmap-4] [INFO] [1783877675.773154773] [rtabmap]: rtabmap: use_action_for_goal  = false
+[rtabmap-4] [INFO] [1783877675.773165205] [rtabmap]: rtabmap: tf_delay      = 0.050000
+[rtabmap-4] [INFO] [1783877675.773185302] [rtabmap]: rtabmap: tf_tolerance  = 0.100000
+[rtabmap-4] [INFO] [1783877675.773195638] [rtabmap]: rtabmap: odom_sensor_sync   = false
+[rtabmap-4] [INFO] [1783877675.773204566] [rtabmap]: rtabmap: pub_loc_pose_only_when_localizing = false
+[rtabmap-4] [INFO] [1783877675.773213654] [rtabmap]: rtabmap: wait_for_transform = 0.200000
+[rtabmap-4] [INFO] [1783877675.773226038] [rtabmap]: rtabmap: gen_scan  = false
+[rtabmap-4] [INFO] [1783877675.773234966] [rtabmap]: rtabmap: gen_depth  = false
+[rtabmap-4] [INFO] [1783877675.807576282] [rtabmap]: Setting RTAB-Map parameter "Grid/CellSize"="0.10" (rosparam)
+[rtabmap-4] [INFO] [1783877675.813737329] [rtabmap]: Setting RTAB-Map parameter "Mem/IncrementalMemory"="true" (rosparam)
+[rtabmap-4] [INFO] [1783877675.813888435] [rtabmap]: Setting RTAB-Map parameter "Mem/InitWMWithAllNodes"="false" (rosparam)
+[rtabmap-4] [INFO] [1783877675.815302407] [rtabmap]: Setting RTAB-Map parameter "Optimizer/GravitySigma"="0.3" (rosparam)
+[rtabmap-4] [INFO] [1783877675.817409381] [rtabmap]: Setting RTAB-Map parameter "RGBD/OptimizeFromGraphEnd"="false" (rosparam)
+[rtabmap-4] [INFO] [1783877675.818567701] [rtabmap]: Setting RTAB-Map parameter "Rtabmap/DetectionRate"="2.0" (rosparam)
+[rtabmap-4] [INFO] [1783877675.826644167] [rtabmap]: RTAB-Map detection rate = 2.000000 Hz
+[rtabmap-4] [INFO] [1783877675.830299386] [rtabmap]: rtabmap: Deleted database "/home/jetson-evtol/.ros/rtabmap.db" (--delete_db_on_start or -d are set).
+[rtabmap-4] [INFO] [1783877675.830392604] [rtabmap]: rtabmap: Using database from "/home/jetson-evtol/.ros/rtabmap.db" (0 MB).
+[rtabmap-4] [INFO] [1783877675.882421785] [rtabmap]: rtabmap: Database version = "0.22.1".
+[rtabmap-4] [INFO] [1783877675.882534203] [rtabmap]: rtabmap: SLAM mode (Mem/IncrementalMemory=true)
+[rtabmap-4] [INFO] [1783877675.907035028] [rtabmap]: Setup callbacks
+[rtabmap-4] [INFO] [1783877675.907286263] [rtabmap]: rtabmap: subscribe_depth = true
+[rtabmap-4] [INFO] [1783877675.907329144] [rtabmap]: rtabmap: subscribe_rgb = true
+[rtabmap-4] [INFO] [1783877675.907353080] [rtabmap]: rtabmap: subscribe_stereo = false
+[rtabmap-4] [INFO] [1783877675.907394329] [rtabmap]: rtabmap: subscribe_rgbd = false (rgbd_cameras=1)
+[rtabmap-4] [INFO] [1783877675.907422841] [rtabmap]: rtabmap: subscribe_sensor_data = false
+[rtabmap-4] [INFO] [1783877675.907445082] [rtabmap]: rtabmap: subscribe_odom_info = false
+[rtabmap-4] [INFO] [1783877675.907465818] [rtabmap]: rtabmap: subscribe_user_data = false
+[rtabmap-4] [INFO] [1783877675.907485594] [rtabmap]: rtabmap: subscribe_scan = false
+[rtabmap-4] [INFO] [1783877675.907505243] [rtabmap]: rtabmap: subscribe_scan_cloud = false
+[rtabmap-4] [INFO] [1783877675.907524379] [rtabmap]: rtabmap: subscribe_scan_descriptor = false
+[rtabmap-4] [INFO] [1783877675.907543323] [rtabmap]: rtabmap: topic_queue_size = 10
+[rtabmap-4] [INFO] [1783877675.907562843] [rtabmap]: rtabmap: sync_queue_size  = 10
+[rtabmap-4] [INFO] [1783877675.907675773] [rtabmap]: rtabmap: qos_image       = 1
+[rtabmap-4] [INFO] [1783877675.907702973] [rtabmap]: rtabmap: qos_camera_info = 1
+[rtabmap-4] [INFO] [1783877675.907723358] [rtabmap]: rtabmap: qos_scan        = 0
+[rtabmap-4] [INFO] [1783877675.907741118] [rtabmap]: rtabmap: qos_odom        = 1
+[rtabmap-4] [INFO] [1783877675.907757950] [rtabmap]: rtabmap: qos_user_data   = 0
+[rtabmap-4] [INFO] [1783877675.907774942] [rtabmap]: rtabmap: approx_sync     = true
+[rtabmap-4] [INFO] [1783877675.907821919] [rtabmap]: Setup depth callback
+[rtabmap-4] [INFO] [1783877675.919214048] [rtabmap]: 
+[rtabmap-4] rtabmap subscribed to (approx sync):
+[rtabmap-4]    /odom_local \
+[rtabmap-4]    /oak/rgb/image_raw \
+[rtabmap-4]    /oak/stereo/image_raw \
+[rtabmap-4]    /oak/rgb/camera_info
+[component_container-1] [INFO] [1783877676.349930676] [oak]: Starting camera.
+[component_container-1] [INFO] [1783877676.355666757] [oak]: No ip/mxid specified, connecting to the next available device.
+[INFO] [slam_bridge-5]: process started with pid [11679]
+[slam_bridge-5] [INFO] [1783877677.990162836] [slam_bridge]: slam_odometry_topic: /odom_local
+[slam_bridge-5] [INFO] [1783877677.991822316] [slam_bridge]: px4_odometry_output_topic: /fmu/in/vehicle_visual_odometry
+[slam_bridge-5] [INFO] [1783877677.992525429] [slam_bridge]: timesync_topic: /fmu/out/timesync_status
+[slam_bridge-5] [INFO] [1783877677.993130654] [slam_bridge]: variance_floor: 0.100
+[slam_bridge-5] [INFO] [1783877678.003107594] [slam_bridge]: SLAM Bridge initialized - converting ENU -> NED with Covariance & Velocity
+[component_container-1] [INFO] [1783877679.010854232] [oak]: Camera with MXID: 1844301011E9AC0F00 and Name: 1.2.2 connected!
+[component_container-1] [INFO] [1783877679.012217195] [oak]: USB SPEED: SUPER
+[component_container-1] [INFO] [1783877679.058679513] [oak]: Device type: OAK-D-PRO
+[component_container-1] [INFO] [1783877679.062696689] [oak]: Pipeline type: RGBD
+[component_container-1] [WARN] [1783877679.211574561] [oak]: Resolution 720 not supported by sensor IMX378. Using default resolution 1080P
+[component_container-1] [INFO] [1783877679.767159469] [oak]: Finished setting up pipeline.
+[imu_filter_madgwick_node-2] [INFO] [1783877680.177666367] [imu_filter]: First IMU message received.
+[component_container-1] [INFO] [1783877680.195278358] [oak]: Camera ready!
+[rgbd_odometry-3] [INFO] [1783877680.711420341] [rgbd_odometry]: Odom: quality=0, std dev=99.995000m|99.995000rad, update time=0.022198s delay=0.383130s
+[slam_bridge-5] [WARN] [1783877680.713018220] [slam_bridge]: SLAM tracking lost - pausing odometry to PX4
+[rgbd_odometry-3] [INFO] [1783877680.777324117] [rgbd_odometry]: Odom: quality=12, std dev=0.020711m|0.016542rad, update time=0.054400s delay=0.149214s
+[slam_bridge-5] [WARN] [1783877680.777586712] [slam_bridge]: SLAM tracking recovered - reset_counter=1
+[rtabmap-4] [INFO] [1783877680.860512359] [rtabmap]: rtabmap (1): Rate=0.50s, Limit=0.000s, Conversion=0.0046s, RTAB-Map=0.1414s, Maps update=0.0002s pub=0.0001s delay=0.5322s (local map=1, WM=1)
+[rgbd_odometry-3] [INFO] [1783877682.721427399] [rgbd_odometry]: Odom: quality=15, std dev=0.014142m|0.028084rad, update time=0.133659s delay=0.226624s
+[rtabmap-4] [INFO] [1783877682.882863782] [rtabmap]: rtabmap (2): Rate=0.50s, Limit=0.000s, Conversion=0.0011s, RTAB-Map=0.1509s, Maps update=0.0001s pub=0.0000s delay=0.3881s (local map=1, WM=1)
+[rgbd_odometry-3] [INFO] [1783877683.379066022] [rgbd_odometry]: Odom: quality=10, std dev=0.010508m|0.025972rad, update time=0.057981s delay=0.284263s
+[rtabmap-4] [INFO] [1783877683.558272478] [rtabmap]: rtabmap (3): Rate=0.50s, Limit=0.000s, Conversion=0.0012s, RTAB-Map=0.1735s, Maps update=0.0001s pub=0.0000s delay=0.4635s (local map=1, WM=1)
+[rgbd_odometry-3] [INFO] [1783877683.948537581] [rgbd_odometry]: Odom: quality=11, std dev=0.012973m|0.027053rad, update time=0.062049s delay=0.153733s
+[rtabmap-4] [INFO] [1783877684.079746945] [rtabmap]: rtabmap (4): Rate=0.50s, Limit=0.000s, Conversion=0.0013s, RTAB-Map=0.1285s, Maps update=0.0001s pub=0.0000s delay=0.2850s (local map=1, WM=1)
+[rgbd_odometry-3] [INFO] [1783877684.192935352] [rgbd_odometry]: Odom: quality=11, std dev=0.014068m|0.031640rad, update time=0.174244s delay=0.264799s
+[rgbd_odometry-3] [WARN] [1783877684.461628856] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 4 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877684.461752634] [rgbd_odometry]: Odom: quality=6, std dev=0.000000m|0.000000rad, update time=0.174587s delay=0.266954s
+[slam_bridge-5] [WARN] [1783877684.461941341] [slam_bridge]: SLAM tracking lost - pausing odometry to PX4
+[rgbd_odometry-3] [INFO] [1783877684.663045127] [rgbd_odometry]: Odom: quality=10, std dev=0.016812m|0.025972rad, update time=0.073527s delay=0.168238s
+[slam_bridge-5] [WARN] [1783877684.663267850] [slam_bridge]: SLAM tracking recovered - reset_counter=2
+[rtabmap-4] [INFO] [1783877684.802682642] [rtabmap]: rtabmap (5): Rate=0.50s, Limit=0.000s, Conversion=0.0009s, RTAB-Map=0.1374s, Maps update=0.0001s pub=0.0000s delay=0.3079s (local map=1, WM=1)
+[rgbd_odometry-3] [WARN] [1783877684.898439924] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 4 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877684.898566549] [rgbd_odometry]: Odom: quality=3, std dev=0.000000m|0.000000rad, update time=0.217893s delay=0.303767s
+[slam_bridge-5] [WARN] [1783877684.898701559] [slam_bridge]: SLAM tracking lost - pausing odometry to PX4
+[rgbd_odometry-3] [WARN] [1783877685.162470130] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 3 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877685.162596788] [rgbd_odometry]: Odom: quality=4, std dev=0.000000m|0.000000rad, update time=0.216938s delay=0.334464s
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:40.688) Odometry.cpp:324::process() Updated initial pose from xyz=0.000000,0.000000,0.000000 rpy=0.000000,-0.000000,0.000000 to xyz=0.000000,0.000000,0.000000 rpy=2.441306,-1.529003,1.400429 with IMU orientation[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:42.636) OdometryF2M.cpp:626::computeTransform() Registration failed: "Not enough inliers 6/10 (matches=82) between -1 and 3" (guess=xyz=-0.356594,-0.300641,-0.002059 rpy=0.000124,0.002915,0.001868)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:42.636) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=-0.356594,-0.300641,-0.002059 rpy=0.000124,0.002915,0.001868), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:42.720) OdometryF2M.cpp:636::computeTransform() Trial with no guess succeeded![0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:44.082) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 9<10" (guess=xyz=-0.000074,-0.003647,-0.001792 rpy=0.000033,0.000105,0.000279)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:44.082) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=-0.000074,-0.003647,-0.001792 rpy=0.000033,0.000105,0.000279), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:44.191) OdometryF2M.cpp:636::computeTransform() Trial with no guess succeeded![0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:44.348) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 4<10" (guess=xyz=-0.052984,-0.136421,-0.021107 rpy=0.000041,-0.000099,-0.000323)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:44.348) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=-0.052984,-0.136421,-0.021107 rpy=0.000041,-0.000099,-0.000323), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:44.460) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:44.460) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 6<10" (guess=xyz=-0.052984,-0.136421,-0.021107 rpy=0.000041,-0.000099,-0.000323)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:44.749) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 6<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000287,-0.000093,0.000112)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:44.749) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=0.000287,-0.000093,0.000112), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:44.897) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:44.897) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 3<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000287,-0.000093,0.000112)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:45.016) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 7<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000389,0.000074,-0.000362)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:45.016) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=0.000389,0.000074,-0.000362), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:45.161) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:45.161) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 4<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000389,0.000074,-0.000362)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:45.450) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 8<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000538,0.000375,-0.000119)[0m
+[rgbd_odometry-3] [WARN] [1783877685.589880199] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 2 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877685.589999113] [rgbd_odometry]: Odom: quality=5, std dev=0.000000m|0.000000rad, update time=0.206669s delay=0.295208s
+[rtabmap-4] [INFO] [1783877685.592489580] [rtabmap]: rtabmap (5): Rate=0.50s, Limit=0.000s, Conversion=0.0012s, RTAB-Map=0.0003s, Maps update=0.0000s pub=0.0000s delay=0.2977s (local map=1, WM=1)
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:45.450) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=0.000538,0.000375,-0.000119), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:45.588) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:45.588) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 5<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000538,0.000375,-0.000119)[0m
+[rtabmap-4] [31m[ERROR] (2026-07-12 14:34:45.592) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rgbd_odometry-3] [WARN] [1783877685.955455320] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 1 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877685.955568538] [rgbd_odometry]: Odom: quality=3, std dev=0.000000m|0.000000rad, update time=0.206116s delay=0.327434s
+[rtabmap-4] [INFO] [1783877686.354976516] [rtabmap]: rtabmap (5): Rate=0.50s, Limit=0.000s, Conversion=0.0012s, RTAB-Map=0.0001s, Maps update=0.0000s pub=0.0000s delay=0.3269s (local map=1, WM=1)
+[rgbd_odometry-3] [WARN] [1783877686.454505050] [rgbd_odometry]: Odometry automatically reset to latest computed pose!
+[rgbd_odometry-3] [INFO] [1783877686.456453526] [rgbd_odometry]: Odom: quality=5, std dev=0.000000m|0.000000rad, update time=0.306547s delay=0.428324s
+[rgbd_odometry-3] [INFO] [1783877686.681682833] [rgbd_odometry]: Odom: quality=0, std dev=99.995000m|99.995000rad, update time=0.032411s delay=0.120213s
+[rgbd_odometry-3] [INFO] [1783877686.752844057] [rgbd_odometry]: Odom: quality=25, std dev=0.005426m|0.022810rad, update time=0.069095s delay=0.158049s
+[slam_bridge-5] [WARN] [1783877686.753047964] [slam_bridge]: SLAM tracking recovered - reset_counter=3
+[rtabmap-4] [INFO] [1783877686.822061733] [rtabmap]: rtabmap (6): Rate=0.50s, Limit=0.000s, Conversion=0.0012s, RTAB-Map=0.1357s, Maps update=0.0001s pub=0.0000s delay=0.2606s (local map=1, WM=2)
+[rgbd_odometry-3] [INFO] [1783877687.547591795] [rgbd_odometry]: Odom: quality=13, std dev=0.008221m|0.027887rad, update time=0.132006s delay=0.219462s
+[rtabmap-4] [INFO] [1783877687.721541853] [rtabmap]: rtabmap (7): Rate=0.50s, Limit=0.000s, Conversion=0.0026s, RTAB-Map=0.1699s, Maps update=0.0001s pub=0.0000s delay=0.3934s (local map=1, WM=2)
+[rgbd_odometry-3] [INFO] [1783877688.417999056] [rgbd_odometry]: Odom: quality=14, std dev=0.007498m|0.020556rad, update time=0.058283s delay=0.189876s
+[rtabmap-4] [INFO] [1783877688.566280369] [rtabmap]: rtabmap (8): Rate=0.50s, Limit=0.000s, Conversion=0.0010s, RTAB-Map=0.1458s, Maps update=0.0001s pub=0.0000s delay=0.3382s (local map=1, WM=2)
+[rgbd_odometry-3] [INFO] [1783877689.055979500] [rgbd_odometry]: Odom: quality=11, std dev=0.007631m|0.023049rad, update time=0.166242s delay=0.261178s
+[rtabmap-4] [INFO] [1783877689.211342512] [rtabmap]: rtabmap (9): Rate=0.50s, Limit=0.000s, Conversion=0.0010s, RTAB-Map=0.1530s, Maps update=0.0001s pub=0.0000s delay=0.4166s (local map=1, WM=2)
+[rgbd_odometry-3] [WARN] [1783877689.297924975] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 4 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877689.298050961] [rgbd_odometry]: Odom: quality=8, std dev=0.000000m|0.000000rad, update time=0.173692s delay=0.269923s
+[slam_bridge-5] [WARN] [1783877689.298154355] [slam_bridge]: SLAM tracking lost - pausing odometry to PX4
+[rgbd_odometry-3] [INFO] [1783877689.483916258] [rgbd_odometry]: Odom: quality=10, std dev=0.007121m|0.024831rad, update time=0.064917s delay=0.189082s
+[slam_bridge-5] [WARN] [1783877689.484151557] [slam_bridge]: SLAM tracking recovered - reset_counter=4
+[rtabmap-4] [INFO] [1783877689.634332545] [rtabmap]: rtabmap (10): Rate=0.50s, Limit=0.000s, Conversion=0.0010s, RTAB-Map=0.1466s, Maps update=0.0001s pub=0.0000s delay=0.3395s (local map=1, WM=2)
+[rgbd_odometry-3] [INFO] [1783877689.761794302] [rgbd_odometry]: Odom: quality=11, std dev=0.010952m|0.027753rad, update time=0.067455s delay=0.266957s
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:45.820) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 4<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000393,0.000520,-0.000076)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:45.820) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=0.000393,0.000520,-0.000076), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:45.954) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:45.954) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 3<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000393,0.000520,-0.000076)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:46.217) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 8<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.001003,0.000377,-0.000178)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:46.218) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=0.001003,0.000377,-0.000178), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:46.351) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:46.351) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 5<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.001003,0.000377,-0.000178)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:46.454) MsgConversion.cpp:2010::getTransform() (getting transform odom -> oak) Lookup would require extrapolation into the future.  Requested time 1783877686.028121 but the latest data is at time 1783877684.494797, when looking up transform from frame [oak] to frame [odom] (wait_for_transform=0.100000)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:47.462) OdometryF2M.cpp:626::computeTransform() Registration failed: "Not enough inliers 6/10 (matches=45) between -1 and 3" (guess=xyz=-0.219928,0.259035,0.197990 rpy=0.000369,0.000457,-0.000123)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:47.462) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=-0.219928,0.259035,0.197990 rpy=0.000369,0.000457,-0.000123), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:47.546) OdometryF2M.cpp:636::computeTransform() Trial with no guess succeeded![0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:48.949) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 8<10" (guess=xyz=0.006470,-0.008830,0.010011 rpy=0.000106,-0.000039,-0.000174)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:48.949) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.006470,-0.008830,0.010011 rpy=0.000106,-0.000039,-0.000174), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:49.054) OdometryF2M.cpp:636::computeTransform() Trial with no guess succeeded![0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:49.186) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 5<10" (guess=xyz=0.002119,0.000161,-0.002300 rpy=-0.000540,-0.000458,0.000304)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:49.187) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.002119,0.000161,-0.002300 rpy=-0.000540,-0.000458,0.000304), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:49.297) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:49.297) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 8<10" (guess=xyz=0.002119,0.000161,-0.002300 rpy=-0.000540,-0.000458,0.000304)[0m
+[rgbd_odometry-3] [WARN] [1783877690.495344339] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 4 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877690.495498581] [rgbd_odometry]: Odom: quality=7, std dev=0.000000m|0.000000rad, update time=0.209827s delay=0.300663s
+[slam_bridge-5] [WARN] [1783877690.495609335] [slam_bridge]: SLAM tracking lost - pausing odometry to PX4
+[rtabmap-4] [INFO] [1783877690.497938615] [rtabmap]: rtabmap (10): Rate=0.50s, Limit=0.000s, Conversion=0.0012s, RTAB-Map=0.0002s, Maps update=0.0000s pub=0.0000s delay=0.3031s (local map=1, WM=2)
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:50.353) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 9<10" (guess=xyz=0.019411,0.016739,0.067471 rpy=-0.000045,-0.000416,-0.000596)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:50.354) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.019411,0.016739,0.067471 rpy=-0.000045,-0.000416,-0.000596), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:50.494) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:50.494) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 7<10" (guess=xyz=0.019411,0.016739,0.067471 rpy=-0.000045,-0.000416,-0.000596)[0m
+[rtabmap-4] [31m[ERROR] (2026-07-12 14:34:46.354) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rtabmap-4] [33m[ WARN] (2026-07-12 14:34:46.684) CoreWrapper.cpp:1137::odomUpdate() Odometry is reset (identity pose or high variance (19998.000000) detected). Increment map id![0m
+[rtabmap-4] [31m[ERROR] (2026-07-12 14:34:50.497) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rgbd_odometry-3] [WARN] [1783877691.058119851] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 3 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877691.058248940] [rgbd_odometry]: Odom: quality=8, std dev=0.000000m|0.000000rad, update time=0.207890s delay=0.330083s
+[rtabmap-4] [INFO] [1783877691.060033798] [rtabmap]: rtabmap (10): Rate=0.50s, Limit=0.000s, Conversion=0.0011s, RTAB-Map=0.0001s, Maps update=0.0000s pub=0.0000s delay=0.3319s (local map=1, WM=2)
+[rgbd_odometry-3] [INFO] [1783877691.253865892] [rgbd_odometry]: Odom: quality=10, std dev=0.011985m|0.023831rad, update time=0.069868s delay=0.159028s
+[slam_bridge-5] [WARN] [1783877691.254106760] [slam_bridge]: SLAM tracking recovered - reset_counter=5
+[rgbd_odometry-3] [WARN] [1783877691.494367378] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 4 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877691.494498868] [rgbd_odometry]: Odom: quality=8, std dev=0.000000m|0.000000rad, update time=0.213324s delay=0.299664s
+[slam_bridge-5] [WARN] [1783877691.494602069] [slam_bridge]: SLAM tracking lost - pausing odometry to PX4
+[rgbd_odometry-3] [INFO] [1783877691.594932660] [rgbd_odometry]: Odom: quality=12, std dev=0.010425m|0.025890rad, update time=0.073542s delay=0.200098s
+[slam_bridge-5] [WARN] [1783877691.595133015] [slam_bridge]: SLAM tracking recovered - reset_counter=6
+[rtabmap-4] [INFO] [1783877691.739883365] [rtabmap]: rtabmap (11): Rate=0.50s, Limit=0.000s, Conversion=0.0010s, RTAB-Map=0.1427s, Maps update=0.0001s pub=0.0000s delay=0.3451s (local map=1, WM=2)
+[rgbd_odometry-3] [INFO] [1783877691.891585685] [rgbd_odometry]: Odom: quality=10, std dev=0.018093m|0.024246rad, update time=0.074688s delay=0.163417s
+[rgbd_odometry-3] [WARN] [1783877692.311447893] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 4 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877692.311574519] [rgbd_odometry]: Odom: quality=7, std dev=0.000000m|0.000000rad, update time=0.221073s delay=0.316753s
+[slam_bridge-5] [WARN] [1783877692.311682777] [slam_bridge]: SLAM tracking lost - pausing odometry to PX4
+[rtabmap-4] [INFO] [1783877692.313625460] [rtabmap]: rtabmap (11): Rate=0.50s, Limit=0.000s, Conversion=0.0010s, RTAB-Map=0.0002s, Maps update=0.0000s pub=0.0000s delay=0.3188s (local map=1, WM=2)
+[rgbd_odometry-3] [WARN] [1783877693.042235421] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 3 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877693.042368703] [rgbd_odometry]: Odom: quality=6, std dev=0.000000m|0.000000rad, update time=0.224645s delay=0.314212s
+[rtabmap-4] [INFO] [1783877693.047991789] [rtabmap]: rtabmap (11): Rate=0.50s, Limit=0.000s, Conversion=0.0038s, RTAB-Map=0.0001s, Maps update=0.0000s pub=0.0000s delay=0.3199s (local map=1, WM=2)
+[rgbd_odometry-3] [WARN] [1783877693.307726503] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 2 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877693.307867848] [rgbd_odometry]: Odom: quality=2, std dev=0.000000m|0.000000rad, update time=0.226226s delay=0.413037s
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:50.917) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 6<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.000698,-0.001174,-0.000286)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:50.918) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=-0.000698,-0.001174,-0.000286), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:51.057) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:51.057) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 8<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.000698,-0.001174,-0.000286)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:51.351) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 8<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.000291,-0.000019,-0.000006)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:51.351) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=-0.000291,-0.000019,-0.000006), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:51.493) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:51.493) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 8<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.000291,-0.000019,-0.000006)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:52.162) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 2<10" (guess=xyz=-0.014347,0.070471,0.015913 rpy=-0.000333,0.000151,0.000554)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:52.162) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=-0.014347,0.070471,0.015913 rpy=-0.000333,0.000151,0.000554), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:52.310) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:52.310) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 7<10" (guess=xyz=-0.014347,0.070471,0.015913 rpy=-0.000333,0.000151,0.000554)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:52.891) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 7<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.000132,-0.000026,0.000666)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:52.891) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=-0.000132,-0.000026,0.000666), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:53.041) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:53.041) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 6<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.000132,-0.000026,0.000666)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:53.157) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 2<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000407,0.000297,0.000294)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:53.157) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=0.000407,0.000297,0.000294), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:53.306) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:53.306) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 2<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000407,0.000297,0.000294)[0m
+[rgbd_odometry-3] [WARN] [1783877693.546042739] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 1 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877693.546168181] [rgbd_odometry]: Odom: quality=1, std dev=0.000000m|0.000000rad, update time=0.226338s delay=0.318008s
+[rtabmap-4] [INFO] [1783877693.548796090] [rtabmap]: rtabmap (11): Rate=0.50s, Limit=0.000s, Conversion=0.0011s, RTAB-Map=0.0001s, Maps update=0.0000s pub=0.0000s delay=0.3207s (local map=1, WM=2)
+[rgbd_odometry-3] [WARN] [1783877693.959196723] [rgbd_odometry]: Odometry automatically reset to latest computed pose!
+[rgbd_odometry-3] [INFO] [1783877693.962368320] [rgbd_odometry]: Odom: quality=6, std dev=0.000000m|0.000000rad, update time=0.343015s delay=0.434202s
+[rgbd_odometry-3] [INFO] [1783877694.048001264] [rgbd_odometry]: Odom: quality=0, std dev=99.995000m|99.995000rad, update time=0.030392s delay=0.119838s
+[rtabmap-4] [INFO] [1783877694.329721276] [rtabmap]: rtabmap (12): Rate=0.50s, Limit=0.000s, Conversion=0.0012s, RTAB-Map=0.2770s, Maps update=0.0000s pub=0.0000s delay=0.4016s (local map=2, WM=3)
+[rgbd_odometry-3] [INFO] [1783877694.511239180] [rgbd_odometry]: Odom: quality=18, std dev=0.011871m|0.021339rad, update time=0.093133s delay=0.183078s
+[slam_bridge-5] [WARN] [1783877694.511465487] [slam_bridge]: SLAM tracking recovered - reset_counter=7
+[rgbd_odometry-3] [INFO] [1783877694.684376838] [rgbd_odometry]: Odom: quality=15, std dev=0.005833m|0.019282rad, update time=0.065372s delay=0.156217s
+[rtabmap-4] [INFO] [1783877694.834980069] [rtabmap]: rtabmap (13): Rate=0.50s, Limit=0.000s, Conversion=0.0010s, RTAB-Map=0.1486s, Maps update=0.0001s pub=0.0000s delay=0.3069s (local map=2, WM=3)
+[rgbd_odometry-3] [INFO] [1783877694.849738836] [rgbd_odometry]: Odom: quality=17, std dev=0.009312m|0.028773rad, update time=0.069335s delay=0.188247s
+[rgbd_odometry-3] [INFO] [1783877695.151951583] [rgbd_odometry]: Odom: quality=13, std dev=0.017198m|0.030020rad, update time=0.167047s delay=0.257123s
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:53.394) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 8<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000258,0.000020,-0.000137)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:53.395) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=0.000258,0.000020,-0.000137), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:53.544) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:53.544) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 1<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000258,0.000020,-0.000137)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:53.698) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 4<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000279,0.000309,0.000362)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:53.699) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=0.000279,0.000309,0.000362), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:53.855) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:53.855) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 6<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000279,0.000309,0.000362)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:53.959) MsgConversion.cpp:2010::getTransform() (getting transform odom -> oak) Lookup would require extrapolation into the future.  Requested time 1783877693.528157 but the latest data is at time 1783877691.728159, when looking up transform from frame [oak] to frame [odom] (wait_for_transform=0.100000)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:55.043) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 4<10" (guess=xyz=-0.054142,-0.139954,-0.005596 rpy=0.000339,-0.000554,0.000714)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:55.043) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=-0.054142,-0.139954,-0.005596 rpy=0.000339,-0.000554,0.000714), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:55.150) OdometryF2M.cpp:636::computeTransform() Trial with no guess succeeded![0m
+[rtabmap-4] [31m[ERROR] (2026-07-12 14:34:51.060) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rtabmap-4] [31m[ERROR] (2026-07-12 14:34:52.313) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rtabmap-4] [31m[ERROR] (2026-07-12 14:34:53.047) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rtabmap-4] [31m[ERROR] (2026-07-12 14:34:53.548) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rtabmap-4] [33m[ WARN] (2026-07-12 14:34:54.050) CoreWrapper.cpp:1137::odomUpdate() Odometry is reset (identity pose or high variance (19998.000000) detected). Increment map id![0m
+[rgbd_odometry-3] [INFO] [1783877695.880024216] [rgbd_odometry]: Odom: quality=13, std dev=0.005199m|0.022437rad, update time=0.062932s delay=0.151859s
+[rtabmap-4] [INFO] [1783877696.013533606] [rtabmap]: rtabmap (14): Rate=0.50s, Limit=0.000s, Conversion=0.0010s, RTAB-Map=0.1314s, Maps update=0.0001s pub=0.0000s delay=0.2854s (local map=2, WM=3)
+[rgbd_odometry-3] [INFO] [1783877696.285221988] [rgbd_odometry]: Odom: quality=13, std dev=0.019823m|0.026758rad, update time=0.067577s delay=0.157061s
+[rgbd_odometry-3] [WARN] [1783877696.687021599] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 4 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877696.687146273] [rgbd_odometry]: Odom: quality=6, std dev=0.000000m|0.000000rad, update time=0.207426s delay=0.358994s
+[slam_bridge-5] [WARN] [1783877696.687265571] [slam_bridge]: SLAM tracking lost - pausing odometry to PX4
+[rtabmap-4] [INFO] [1783877696.689324160] [rtabmap]: rtabmap (14): Rate=0.50s, Limit=0.000s, Conversion=0.0011s, RTAB-Map=0.0003s, Maps update=0.0000s pub=0.0000s delay=0.3612s (local map=2, WM=3)
+[rgbd_odometry-3] [INFO] [1783877696.785099741] [rgbd_odometry]: Odom: quality=11, std dev=0.008654m|0.024346rad, update time=0.069135s delay=0.156941s
+[slam_bridge-5] [WARN] [1783877696.785303392] [slam_bridge]: SLAM tracking recovered - reset_counter=8
+[rgbd_odometry-3] [INFO] [1783877696.995258621] [rgbd_odometry]: Odom: quality=16, std dev=0.009507m|0.021630rad, update time=0.075919s delay=0.167096s
+[rgbd_odometry-3] [INFO] [1783877697.096703593] [rgbd_odometry]: Odom: quality=12, std dev=0.010289m|0.023937rad, update time=0.080269s delay=0.168547s
+[rtabmap-4] [INFO] [1783877697.135589034] [rtabmap]: rtabmap (15): Rate=0.50s, Limit=0.000s, Conversion=0.0013s, RTAB-Map=0.1379s, Maps update=0.0001s pub=0.0000s delay=0.3075s (local map=2, WM=3)
+[rgbd_odometry-3] [WARN] [1783877697.534503388] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 4 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877697.534632606] [rgbd_odometry]: Odom: quality=6, std dev=0.000000m|0.000000rad, update time=0.217854s delay=0.306470s
+[slam_bridge-5] [WARN] [1783877697.534762943] [slam_bridge]: SLAM tracking lost - pausing odometry to PX4
+[rgbd_odometry-3] [WARN] [1783877698.011046509] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 3 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877698.011175311] [rgbd_odometry]: Odom: quality=3, std dev=0.000000m|0.000000rad, update time=0.226787s delay=0.316441s
+[rtabmap-4] [INFO] [1783877698.014001942] [rtabmap]: rtabmap (15): Rate=0.50s, Limit=0.000s, Conversion=0.0012s, RTAB-Map=0.0004s, Maps update=0.0000s pub=0.0000s delay=0.3193s (local map=2, WM=3)
+[rgbd_odometry-3] [INFO] [1783877698.357978693] [rgbd_odometry]: Odom: quality=11, std dev=0.010674m|0.031128rad, update time=0.238931s delay=0.329905s
+[slam_bridge-5] [WARN] [1783877698.358180360] [slam_bridge]: SLAM tracking recovered - reset_counter=9
+[rgbd_odometry-3] [WARN] [1783877698.616891694] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 4 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877698.617024112] [rgbd_odometry]: Odom: quality=7, std dev=0.000000m|0.000000rad, update time=0.228019s delay=0.322287s
+[slam_bridge-5] [WARN] [1783877698.617118225] [slam_bridge]: SLAM tracking lost - pausing odometry to PX4
+[rtabmap-4] [INFO] [1783877698.620423071] [rtabmap]: rtabmap (15): Rate=0.50s, Limit=0.000s, Conversion=0.0012s, RTAB-Map=0.0001s, Maps update=0.0000s pub=0.0000s delay=0.3257s (local map=2, WM=3)
+[rgbd_odometry-3] [INFO] [1783877698.766296121] [rgbd_odometry]: Odom: quality=10, std dev=0.011783m|0.026758rad, update time=0.078761s delay=0.171560s
+[slam_bridge-5] [WARN] [1783877698.766525277] [slam_bridge]: SLAM tracking recovered - reset_counter=10
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:56.547) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 7<10" (guess=xyz=0.011903,0.048534,0.008662 rpy=-0.000036,-0.000400,-0.000809)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:56.548) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.011903,0.048534,0.008662 rpy=-0.000036,-0.000400,-0.000809), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:56.686) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:56.686) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 6<10" (guess=xyz=0.011903,0.048534,0.008662 rpy=-0.000036,-0.000400,-0.000809)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:57.384) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 1<10" (guess=xyz=0.037304,0.172201,0.061228 rpy=-0.000228,0.000549,-0.000703)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:57.384) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.037304,0.172201,0.061228 rpy=-0.000228,0.000549,-0.000703), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:57.533) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:57.533) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 6<10" (guess=xyz=0.037304,0.172201,0.061228 rpy=-0.000228,0.000549,-0.000703)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:57.861) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 4<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000110,0.000301,0.000034)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:57.861) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=0.000110,0.000301,0.000034), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:58.009) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:58.009) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 3<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000110,0.000301,0.000034)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:58.197) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 5<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.000097,0.000095,0.000484)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:58.197) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=-0.000097,0.000095,0.000484), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:58.355) OdometryF2M.cpp:636::computeTransform() Trial with no guess succeeded![0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:58.465) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 8<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000136,-0.000137,-0.000282)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:58.465) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=0.000136,-0.000137,-0.000282), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:58.615) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:58.615) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 7<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000136,-0.000137,-0.000282)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:59.146) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 6<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000078,-0.000093,-0.000282)[0m
+[rgbd_odometry-3] [WARN] [1783877699.299776036] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 4 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877699.299907046] [rgbd_odometry]: Odom: quality=7, std dev=0.000000m|0.000000rad, update time=0.233992s delay=0.505172s
+[slam_bridge-5] [WARN] [1783877699.300112169] [slam_bridge]: SLAM tracking lost - pausing odometry to PX4
+[rgbd_odometry-3] [WARN] [1783877700.150721641] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 3 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877700.150846635] [rgbd_odometry]: Odom: quality=7, std dev=0.000000m|0.000000rad, update time=0.231518s delay=0.322780s
+[rtabmap-4] [INFO] [1783877700.153387086] [rtabmap]: rtabmap (15): Rate=0.50s, Limit=0.000s, Conversion=0.0013s, RTAB-Map=0.0001s, Maps update=0.0000s pub=0.0000s delay=0.3253s (local map=2, WM=3)
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:59.147) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=0.000078,-0.000093,-0.000282), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:59.298) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:34:59.298) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 7<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000078,-0.000093,-0.000282)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:00.000) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 9<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000326,-0.000172,0.000077)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:00.000) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=0.000326,-0.000172,0.000077), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:00.149) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:00.149) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 7<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000326,-0.000172,0.000077)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:00.476) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 7<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.000739,-0.000302,-0.000185)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:00.476) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=-0.000739,-0.000302,-0.000185), trying again without a guess.[0m
+[rgbd_odometry-3] [WARN] [1783877700.629851256] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 2 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877700.629978106] [rgbd_odometry]: Odom: quality=6, std dev=0.000000m|0.000000rad, update time=0.233708s delay=0.501913s
+[rtabmap-4] [31m[ERROR] (2026-07-12 14:34:56.689) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rtabmap-4] [31m[ERROR] (2026-07-12 14:34:58.013) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rtabmap-4] [31m[ERROR] (2026-07-12 14:34:58.620) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rtabmap-4] [31m[ERROR] (2026-07-12 14:35:00.153) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rgbd_odometry-3] [WARN] [1783877701.087355513] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 1 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877701.087518139] [rgbd_odometry]: Odom: quality=7, std dev=0.000000m|0.000000rad, update time=0.237068s delay=0.326113s
+[rtabmap-4] [INFO] [1783877701.090442916] [rtabmap]: rtabmap (15): Rate=0.50s, Limit=0.000s, Conversion=0.0012s, RTAB-Map=0.0001s, Maps update=0.0000s pub=0.0000s delay=0.3291s (local map=2, WM=3)
+[rgbd_odometry-3] [INFO] [1783877701.300339676] [rgbd_odometry]: Odom: quality=10, std dev=0.007907m|0.017144rad, update time=0.083264s delay=0.172263s
+[slam_bridge-5] [WARN] [1783877701.300555999] [slam_bridge]: SLAM tracking recovered - reset_counter=11
+[rgbd_odometry-3] [INFO] [1783877701.703364417] [rgbd_odometry]: Odom: quality=10, std dev=0.014054m|0.020040rad, update time=0.086437s delay=0.175298s
+[rtabmap-4] [INFO] [1783877701.852845964] [rtabmap]: rtabmap (16): Rate=0.50s, Limit=0.000s, Conversion=0.0016s, RTAB-Map=0.1462s, Maps update=0.0001s pub=0.0000s delay=0.3248s (local map=2, WM=3)
+[rgbd_odometry-3] [WARN] [1783877702.195091166] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 4 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877702.195219232] [rgbd_odometry]: Odom: quality=9, std dev=0.000000m|0.000000rad, update time=0.244918s delay=0.333821s
+[slam_bridge-5] [WARN] [1783877702.195388483] [slam_bridge]: SLAM tracking lost - pausing odometry to PX4
+[rgbd_odometry-3] [WARN] [1783877702.456990925] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 3 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877702.457122383] [rgbd_odometry]: Odom: quality=5, std dev=0.000000m|0.000000rad, update time=0.242532s delay=0.329061s
+[rtabmap-4] [INFO] [1783877702.460687968] [rtabmap]: rtabmap (16): Rate=0.50s, Limit=0.000s, Conversion=0.0011s, RTAB-Map=0.0004s, Maps update=0.0000s pub=0.0000s delay=0.3327s (local map=2, WM=3)
+[rgbd_odometry-3] [WARN] [1783877702.979542200] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 2 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877702.979677466] [rgbd_odometry]: Odom: quality=6, std dev=0.000000m|0.000000rad, update time=0.252058s delay=0.351613s
+[rtabmap-4] [INFO] [1783877702.984148824] [rtabmap]: rtabmap (16): Rate=0.50s, Limit=0.000s, Conversion=0.0013s, RTAB-Map=0.0001s, Maps update=0.0000s pub=0.0000s delay=0.3561s (local map=2, WM=3)
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:00.628) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:00.628) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 6<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.000739,-0.000302,-0.000185)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:00.933) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 9<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.001284,-0.000118,-0.001056)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:00.933) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=-0.001284,-0.000118,-0.001056), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:01.086) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:01.086) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 7<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.001284,-0.000118,-0.001056)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:02.033) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 5<10" (guess=xyz=0.003501,0.049165,0.006475 rpy=-0.001037,-0.000768,-0.000032)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:02.033) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.003501,0.049165,0.006475 rpy=-0.001037,-0.000768,-0.000032), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:02.193) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:02.193) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 9<10" (guess=xyz=0.003501,0.049165,0.006475 rpy=-0.001037,-0.000768,-0.000032)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:02.298) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 9<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.001215,-0.000641,-0.000165)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:02.299) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=-0.001215,-0.000641,-0.000165), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:02.455) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:02.455) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 5<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.001215,-0.000641,-0.000165)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:02.815) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 8<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.000576,-0.001056,0.000293)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:02.816) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=-0.000576,-0.001056,0.000293), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:02.977) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:02.977) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 6<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.000576,-0.001056,0.000293)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:03.100) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 7<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.001068,-0.000626,-0.000202)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:03.100) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=-0.001068,-0.000626,-0.000202), trying again without a guess.[0m
+[rgbd_odometry-3] [INFO] [1783877703.263709212] [rgbd_odometry]: Odom: quality=10, std dev=0.012450m|0.024640rad, update time=0.248218s delay=0.335635s
+[slam_bridge-5] [WARN] [1783877703.263960608] [slam_bridge]: SLAM tracking recovered - reset_counter=12
+[rgbd_odometry-3] [WARN] [1783877703.834013761] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 4 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877703.834192100] [rgbd_odometry]: Odom: quality=5, std dev=0.000000m|0.000000rad, update time=0.248335s delay=0.339460s
+[slam_bridge-5] [WARN] [1783877703.834317093] [slam_bridge]: SLAM tracking lost - pausing odometry to PX4
+[rtabmap-4] [INFO] [1783877703.836799944] [rtabmap]: rtabmap (16): Rate=0.50s, Limit=0.000s, Conversion=0.0013s, RTAB-Map=0.0001s, Maps update=0.0000s pub=0.0000s delay=0.3421s (local map=2, WM=3)
+[rgbd_odometry-3] [WARN] [1783877704.306241065] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 3 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877704.306392460] [rgbd_odometry]: Odom: quality=2, std dev=0.000000m|0.000000rad, update time=0.246804s delay=0.444996s
+[rgbd_odometry-3] [WARN] [1783877704.644169628] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 2 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877704.644316126] [rgbd_odometry]: Odom: quality=5, std dev=0.000000m|0.000000rad, update time=0.246901s delay=0.382908s
+[rtabmap-4] [INFO] [1783877704.648875774] [rtabmap]: rtabmap (16): Rate=0.50s, Limit=0.000s, Conversion=0.0015s, RTAB-Map=0.0001s, Maps update=0.0000s pub=0.0000s delay=0.3875s (local map=2, WM=3)
+[rgbd_odometry-3] [WARN] [1783877705.001317820] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 1 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877705.002485196] [rgbd_odometry]: Odom: quality=7, std dev=0.000000m|0.000000rad, update time=0.251248s delay=0.341089s
+[rtabmap-4] [INFO] [1783877705.308294077] [rtabmap]: rtabmap (16): Rate=0.50s, Limit=0.000s, Conversion=0.0015s, RTAB-Map=0.0002s, Maps update=0.0000s pub=0.0000s delay=0.3469s (local map=2, WM=3)
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:03.260) OdometryF2M.cpp:636::computeTransform() Trial with no guess succeeded![0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:03.673) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 6<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000856,0.000721,-0.000206)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:03.673) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=0.000856,0.000721,-0.000206), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:03.832) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:03.832) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 5<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000856,0.000721,-0.000206)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:04.145) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 5<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.001041,0.000184,-0.000401)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:04.145) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=0.001041,0.000184,-0.000401), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:04.304) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:04.304) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 2<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.001041,0.000184,-0.000401)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:04.483) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 5<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000773,0.000028,0.000238)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:04.484) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=0.000773,0.000028,0.000238), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:04.642) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:04.642) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 5<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000773,0.000028,0.000238)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:04.840) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 4<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000724,0.000522,-0.000104)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:04.841) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=0.000724,0.000522,-0.000104), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:04.999) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:04.999) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 7<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000724,0.000522,-0.000104)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:05.143) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 5<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.001458,0.000395,0.000233)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:05.143) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=0.001458,0.000395,0.000233), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:05.303) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:05.303) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 6<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.001458,0.000395,0.000233)[0m
+[rgbd_odometry-3] [WARN] [1783877705.407522375] [rgbd_odometry]: Odometry automatically reset to latest computed pose!
+[rgbd_odometry-3] [INFO] [1783877705.414195268] [rgbd_odometry]: Odom: quality=6, std dev=0.000000m|0.000000rad, update time=0.356667s delay=0.452793s
+[rgbd_odometry-3] [INFO] [1783877705.555773791] [rgbd_odometry]: Odom: quality=0, std dev=99.995000m|99.995000rad, update time=0.034882s delay=0.127693s
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:05.407) MsgConversion.cpp:2010::getTransform() (getting transform odom -> oak) Lookup would require extrapolation into the future.  Requested time 1783877704.961391 but the latest data is at time 1783877702.928062, when looking up transform from frame [oak] to frame [odom] (wait_for_transform=0.100000)[0m
+[rtabmap-4] [31m[ERROR] (2026-07-12 14:35:01.090) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rtabmap-4] [31m[ERROR] (2026-07-12 14:35:02.460) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rtabmap-4] [31m[ERROR] (2026-07-12 14:35:02.984) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rtabmap-4] [31m[ERROR] (2026-07-12 14:35:03.836) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rtabmap-4] [31m[ERROR] (2026-07-12 14:35:04.648) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rtabmap-4] [31m[ERROR] (2026-07-12 14:35:05.308) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rtabmap-4] [33m[ WARN] (2026-07-12 14:35:05.556) CoreWrapper.cpp:1137::odomUpdate() Odometry is reset (identity pose or high variance (19998.000000) detected). Increment map id![0m
+[rgbd_odometry-3] [INFO] [1783877705.847350920] [rgbd_odometry]: Odom: quality=22, std dev=0.006346m|0.023166rad, update time=0.090103s delay=0.352619s
+[slam_bridge-5] [WARN] [1783877705.847639052] [slam_bridge]: SLAM tracking recovered - reset_counter=13
+[rgbd_odometry-3] [WARN] [1783877706.063714167] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 4 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877706.063843545] [rgbd_odometry]: Odom: quality=8, std dev=0.000000m|0.000000rad, update time=0.117007s delay=0.202513s
+[slam_bridge-5] [WARN] [1783877706.063949947] [slam_bridge]: SLAM tracking lost - pausing odometry to PX4
+[rtabmap-4] [INFO] [1783877706.086118512] [rtabmap]: rtabmap (17): Rate=0.50s, Limit=0.000s, Conversion=0.0011s, RTAB-Map=0.2363s, Maps update=0.0000s pub=0.0000s delay=0.5914s (local map=1, WM=4)
+[rgbd_odometry-3] [INFO] [1783877706.312416777] [rgbd_odometry]: Odom: quality=14, std dev=0.009406m|0.035215rad, update time=0.059594s delay=0.151077s
+[slam_bridge-5] [WARN] [1783877706.312681133] [slam_bridge]: SLAM tracking recovered - reset_counter=14
+[rtabmap-4] [INFO] [1783877706.457987995] [rtabmap]: rtabmap (18): Rate=0.50s, Limit=0.000s, Conversion=0.0010s, RTAB-Map=0.1428s, Maps update=0.0001s pub=0.0000s delay=0.2967s (local map=1, WM=4)
+[rgbd_odometry-3] [INFO] [1783877706.612488777] [rgbd_odometry]: Odom: quality=17, std dev=0.012428m|0.027410rad, update time=0.063206s delay=0.151151s
+[rgbd_odometry-3] [INFO] [1783877706.849239540] [rgbd_odometry]: Odom: quality=14, std dev=0.013580m|0.022688rad, update time=0.062811s delay=0.154570s
+[rtabmap-4] [INFO] [1783877706.996343738] [rtabmap]: rtabmap (19): Rate=0.50s, Limit=0.000s, Conversion=0.0010s, RTAB-Map=0.1450s, Maps update=0.0001s pub=0.0000s delay=0.3017s (local map=1, WM=4)
+[rgbd_odometry-3] [WARN] [1783877707.225913984] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 4 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877707.226039682] [rgbd_odometry]: Odom: quality=7, std dev=0.000000m|0.000000rad, update time=0.174648s delay=0.264709s
+[slam_bridge-5] [WARN] [1783877707.226225573] [slam_bridge]: SLAM tracking lost - pausing odometry to PX4
+[rgbd_odometry-3] [INFO] [1783877707.386996714] [rgbd_odometry]: Odom: quality=10, std dev=0.007904m|0.023166rad, update time=0.066351s delay=0.158988s
+[slam_bridge-5] [WARN] [1783877707.387314030] [slam_bridge]: SLAM tracking recovered - reset_counter=15
+[rtabmap-4] [INFO] [1783877707.532492825] [rtabmap]: rtabmap (20): Rate=0.50s, Limit=0.000s, Conversion=0.0010s, RTAB-Map=0.1426s, Maps update=0.0001s pub=0.0000s delay=0.3045s (local map=1, WM=4)
+[rgbd_odometry-3] [INFO] [1783877708.493044733] [rgbd_odometry]: Odom: quality=15, std dev=0.008784m|0.023394rad, update time=0.071392s delay=0.165034s
+[rtabmap-4] [INFO] [1783877708.625270899] [rtabmap]: rtabmap (21): Rate=0.50s, Limit=0.000s, Conversion=0.0014s, RTAB-Map=0.1296s, Maps update=0.0001s pub=0.0000s delay=0.2973s (local map=1, WM=4)
+[rgbd_odometry-3] [INFO] [1783877709.463276965] [rgbd_odometry]: Odom: quality=16, std dev=0.004580m|0.024446rad, update time=0.211778s delay=0.301938s
+[rgbd_odometry-3] [INFO] [1783877709.603500938] [rgbd_odometry]: Odom: quality=11, std dev=0.006618m|0.019672rad, update time=0.082858s delay=0.175502s
+[rtabmap-4] [INFO] [1783877709.615071883] [rtabmap]: rtabmap (22): Rate=0.50s, Limit=0.000s, Conversion=0.0014s, RTAB-Map=0.1489s, Maps update=0.0001s pub=0.0000s delay=0.4538s (local map=1, WM=4)
+[rgbd_odometry-3] [INFO] [1783877709.997101343] [rgbd_odometry]: Odom: quality=10, std dev=0.008236m|0.028528rad, update time=0.074034s delay=0.169099s
+[rtabmap-4] [INFO] [1783877710.125550847] [rtabmap]: rtabmap (23): Rate=0.50s, Limit=0.000s, Conversion=0.0016s, RTAB-Map=0.1257s, Maps update=0.0001s pub=0.0000s delay=0.2976s (local map=1, WM=4)
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:06.014) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 8<10" (guess=xyz=-0.015770,0.074454,-0.062943 rpy=0.000609,0.000470,0.000665)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:06.014) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=-0.015770,0.074454,-0.062943 rpy=0.000609,0.000470,0.000665), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:06.063) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:06.063) OdometryF2M.cpp:626::computeTransform() Registration failed: "Not enough inliers 8/10 (matches=55) between -1 and 3" (guess=xyz=-0.015770,0.074454,-0.062943 rpy=0.000609,0.000470,0.000665)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:07.115) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 8<10" (guess=xyz=-0.001515,-0.058398,-0.056089 rpy=-0.000027,-0.000333,-0.000028)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:07.116) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=-0.001515,-0.058398,-0.056089 rpy=-0.000027,-0.000333,-0.000028), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:07.225) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:07.225) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 7<10" (guess=xyz=-0.001515,-0.058398,-0.056089 rpy=-0.000027,-0.000333,-0.000028)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:09.320) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 6<10" (guess=xyz=0.012181,0.073195,0.037241 rpy=-0.000558,0.000140,-0.000192)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:09.321) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.012181,0.073195,0.037241 rpy=-0.000558,0.000140,-0.000192), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:09.461) OdometryF2M.cpp:636::computeTransform() Trial with no guess succeeded![0m
+[rtabmap-4] [33m[ WARN] (2026-07-12 14:35:06.084) Rtabmap.cpp:3069::process() Rejected loop closure 12 -> 17: Not enough inliers 8/20 (matches=100) between 12 and 17[0m
+[rgbd_odometry-3] [WARN] [1783877710.880804785] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 4 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877710.880931699] [rgbd_odometry]: Odom: quality=8, std dev=0.000000m|0.000000rad, update time=0.227919s delay=0.352937s
+[slam_bridge-5] [WARN] [1783877710.881129303] [slam_bridge]: SLAM tracking lost - pausing odometry to PX4
+[rtabmap-4] [INFO] [1783877710.883545857] [rtabmap]: rtabmap (23): Rate=0.50s, Limit=0.000s, Conversion=0.0014s, RTAB-Map=0.0003s, Maps update=0.0000s pub=0.0000s delay=0.3556s (local map=1, WM=4)
+[rgbd_odometry-3] [WARN] [1783877711.414758644] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 3 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877711.414883289] [rgbd_odometry]: Odom: quality=1, std dev=0.000000m|0.000000rad, update time=0.224519s delay=0.320220s
+[rtabmap-4] [INFO] [1783877711.417089657] [rtabmap]: rtabmap (23): Rate=0.50s, Limit=0.000s, Conversion=0.0010s, RTAB-Map=0.0001s, Maps update=0.0000s pub=0.0000s delay=0.3225s (local map=1, WM=4)
+[rgbd_odometry-3] [WARN] [1783877711.811947561] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 2 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877711.812077135] [rgbd_odometry]: Odom: quality=4, std dev=0.000000m|0.000000rad, update time=0.227994s delay=0.350748s
+[rgbd_odometry-3] [WARN] [1783877712.962801579] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 1 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877712.962929297] [rgbd_odometry]: Odom: quality=9, std dev=0.000000m|0.000000rad, update time=0.227681s delay=0.468252s
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:10.731) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 5<10" (guess=xyz=0.024980,0.016205,0.039251 rpy=0.000816,0.000016,0.000185)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:10.731) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.024980,0.016205,0.039251 rpy=0.000816,0.000016,0.000185), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:10.879) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:10.879) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 8<10" (guess=xyz=0.024980,0.016205,0.039251 rpy=0.000816,0.000016,0.000185)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:11.265) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 7<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.000320,-0.000376,-0.000095)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:11.265) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=-0.000320,-0.000376,-0.000095), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:11.413) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:11.413) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 1<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.000320,-0.000376,-0.000095)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:11.661) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 9<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.000176,0.000307,0.000096)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:11.661) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=-0.000176,0.000307,0.000096), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:11.810) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:11.810) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 4<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.000176,0.000307,0.000096)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:12.812) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 9<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.001010,0.000447,-0.000183)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:12.813) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=-0.001010,0.000447,-0.000183), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:12.961) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:12.961) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 9<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.001010,0.000447,-0.000183)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:13.325) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 3<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.002047,-0.000596,0.000267)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:13.325) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=-0.002047,-0.000596,0.000267), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:13.474) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:13.474) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 8<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.002047,-0.000596,0.000267)[0m
+[rgbd_odometry-3] [WARN] [1783877713.577967878] [rgbd_odometry]: Odometry automatically reset to latest computed pose!
+[rgbd_odometry-3] [INFO] [1783877713.581278486] [rgbd_odometry]: Odom: quality=8, std dev=0.000000m|0.000000rad, update time=0.333567s delay=0.486596s
+[rgbd_odometry-3] [INFO] [1783877713.784246553] [rgbd_odometry]: Odom: quality=0, std dev=99.995000m|99.995000rad, update time=0.033714s delay=0.122985s
+[rtabmap-4] [INFO] [1783877714.025045860] [rtabmap]: rtabmap (24): Rate=0.50s, Limit=0.000s, Conversion=0.0011s, RTAB-Map=0.2382s, Maps update=0.0001s pub=0.0000s delay=0.3638s (local map=1, WM=5)
+[rgbd_odometry-3] [INFO] [1783877714.484697676] [rgbd_odometry]: Odom: quality=15, std dev=0.017565m|0.026529rad, update time=0.086680s delay=0.290101s
+[slam_bridge-5] [WARN] [1783877714.484907925] [slam_bridge]: SLAM tracking recovered - reset_counter=16
+[rgbd_odometry-3] [INFO] [1783877714.688697073] [rgbd_odometry]: Odom: quality=13, std dev=0.015609m|0.026907rad, update time=0.071217s delay=0.160771s
+[rtabmap-4] [INFO] [1783877714.728197568] [rtabmap]: rtabmap (25): Rate=0.50s, Limit=0.000s, Conversion=0.0011s, RTAB-Map=0.2386s, Maps update=0.0001s pub=0.0000s delay=0.5336s (local map=1, WM=5)
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:13.577) MsgConversion.cpp:2010::getTransform() (getting transform odom -> oak) Lookup would require extrapolation into the future.  Requested time 1783877713.094664 but the latest data is at time 1783877709.827992, when looking up transform from frame [oak] to frame [odom] (wait_for_transform=0.100000)[0m
+[rtabmap-4] [31m[ERROR] (2026-07-12 14:35:10.883) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rtabmap-4] [31m[ERROR] (2026-07-12 14:35:11.417) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rtabmap-4] [33m[ WARN] (2026-07-12 14:35:13.785) CoreWrapper.cpp:1137::odomUpdate() Odometry is reset (identity pose or high variance (19998.000000) detected). Increment map id![0m
+[rtabmap-4] [33m[ WARN] (2026-07-12 14:35:14.022) Rtabmap.cpp:3069::process() Rejected loop closure 17 -> 24: Not enough inliers 14/20 (matches=103) between 17 and 24[0m
+[rtabmap-4] [33m[ WARN] (2026-07-12 14:35:14.723) Rtabmap.cpp:3069::process() Rejected loop closure 17 -> 25: Not enough inliers 8/20 (matches=107) between 17 and 25[0m
+[rgbd_odometry-3] [WARN] [1783877715.841161801] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 4 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877715.841301551] [rgbd_odometry]: Odom: quality=9, std dev=0.000000m|0.000000rad, update time=0.156029s delay=0.246706s
+[slam_bridge-5] [WARN] [1783877715.841569563] [slam_bridge]: SLAM tracking lost - pausing odometry to PX4
+[rtabmap-4] [INFO] [1783877715.844978479] [rtabmap]: rtabmap (25): Rate=0.50s, Limit=0.000s, Conversion=0.0014s, RTAB-Map=0.0003s, Maps update=0.0000s pub=0.0000s delay=0.2504s (local map=1, WM=5)
+[rgbd_odometry-3] [INFO] [1783877716.147546378] [rgbd_odometry]: Odom: quality=14, std dev=0.015359m|0.026833rad, update time=0.062769s delay=0.152950s
+[slam_bridge-5] [WARN] [1783877716.147843383] [slam_bridge]: SLAM tracking recovered - reset_counter=17
+[rgbd_odometry-3] [WARN] [1783877716.222124865] [rgbd_odometry]: Make sure IMU is published faster than data rate! (last image stamp=1783877716.127914 and last imu stamp received=1783877716.126273). Buffering the image until an imu with same or greater stamp is received.
+[rgbd_odometry-3] [WARN] [1783877716.423113263] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 4 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877716.423268309] [rgbd_odometry]: Odom: quality=6, std dev=0.000000m|0.000000rad, update time=0.176182s delay=0.295348s
+[slam_bridge-5] [WARN] [1783877716.423407292] [slam_bridge]: SLAM tracking lost - pausing odometry to PX4
+[rtabmap-4] [INFO] [1783877716.425626843] [rtabmap]: rtabmap (25): Rate=0.50s, Limit=0.000s, Conversion=0.0012s, RTAB-Map=0.0001s, Maps update=0.0000s pub=0.0000s delay=0.2977s (local map=1, WM=5)
+[rgbd_odometry-3] [WARN] [1783877716.835875068] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 3 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877716.836028003] [rgbd_odometry]: Odom: quality=7, std dev=0.000000m|0.000000rad, update time=0.184075s delay=0.274769s
+[rgbd_odometry-3] [WARN] [1783877717.521808043] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 2 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877717.521932593] [rgbd_odometry]: Odom: quality=6, std dev=0.000000m|0.000000rad, update time=0.168568s delay=0.260678s
+[rtabmap-4] [INFO] [1783877717.524530753] [rtabmap]: rtabmap (25): Rate=0.50s, Limit=0.000s, Conversion=0.0016s, RTAB-Map=0.0001s, Maps update=0.0000s pub=0.0000s delay=0.2633s (local map=1, WM=5)
+[rgbd_odometry-3] [WARN] [1783877717.890181927] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 1 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877717.890305868] [rgbd_odometry]: Odom: quality=5, std dev=0.000000m|0.000000rad, update time=0.171085s delay=0.262383s
+[rgbd_odometry-3] [INFO] [1783877717.981292355] [rgbd_odometry]: Odom: quality=11, std dev=0.014174m|0.025806rad, update time=0.065031s delay=0.153369s
+[slam_bridge-5] [WARN] [1783877717.981513005] [slam_bridge]: SLAM tracking recovered - reset_counter=18
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:15.738) OdometryF2M.cpp:626::computeTransform() Registration failed: "Not enough inliers 0/10 (matches=50) between -1 and 4" (guess=xyz=0.073641,0.326446,0.150602 rpy=-0.000926,-0.000305,-0.000128)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:15.738) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.073641,0.326446,0.150602 rpy=-0.000926,-0.000305,-0.000128), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:15.840) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:15.840) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 9<10" (guess=xyz=0.073641,0.326446,0.150602 rpy=-0.000926,-0.000305,-0.000128)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:16.311) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 9<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000598,0.000107,-0.000346)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:16.311) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=0.000598,0.000107,-0.000346), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:16.422) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:16.422) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 6<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000598,0.000107,-0.000346)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:16.721) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 9<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.001459,-0.000104,-0.000705)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:16.721) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=0.001459,-0.000104,-0.000705), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:16.834) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:16.834) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 7<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.001459,-0.000104,-0.000705)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:17.414) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 6<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000343,-0.000403,-0.000172)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:17.415) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=0.000343,-0.000403,-0.000172), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:17.521) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:17.521) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 6<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000343,-0.000403,-0.000172)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:17.783) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 4<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000941,-0.000606,-0.000439)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:17.783) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=0.000941,-0.000606,-0.000439), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:17.889) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:17.889) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 5<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000941,-0.000606,-0.000439)[0m
+[rtabmap-4] [INFO] [1783877718.120516887] [rtabmap]: rtabmap (26): Rate=0.50s, Limit=0.000s, Conversion=0.0011s, RTAB-Map=0.1369s, Maps update=0.0001s pub=0.0000s delay=0.2926s (local map=1, WM=5)
+[rgbd_odometry-3] [WARN] [1783877718.198024068] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 4 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877718.198146697] [rgbd_odometry]: Odom: quality=8, std dev=0.000000m|0.000000rad, update time=0.180590s delay=0.270226s
+[slam_bridge-5] [WARN] [1783877718.198271663] [slam_bridge]: SLAM tracking lost - pausing odometry to PX4
+[rgbd_odometry-3] [WARN] [1783877718.591561129] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 3 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877718.591693071] [rgbd_odometry]: Odom: quality=6, std dev=0.000000m|0.000000rad, update time=0.174526s delay=0.263771s
+[rtabmap-4] [INFO] [1783877718.594462374] [rtabmap]: rtabmap (26): Rate=0.50s, Limit=0.000s, Conversion=0.0012s, RTAB-Map=0.0002s, Maps update=0.0000s pub=0.0000s delay=0.2666s (local map=1, WM=5)
+[rgbd_odometry-3] [WARN] [1783877718.895054533] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 2 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877718.895185674] [rgbd_odometry]: Odom: quality=4, std dev=0.000000m|0.000000rad, update time=0.178292s delay=0.267265s
+[rgbd_odometry-3] [WARN] [1783877719.089395418] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 1 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877719.089524448] [rgbd_odometry]: Odom: quality=7, std dev=0.000000m|0.000000rad, update time=0.174052s delay=0.261605s
+[rtabmap-4] [INFO] [1783877719.566043878] [rtabmap]: rtabmap (26): Rate=0.50s, Limit=0.000s, Conversion=0.0011s, RTAB-Map=0.0001s, Maps update=0.0000s pub=0.0000s delay=0.2715s (local map=1, WM=5)
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:18.085) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 7<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.000019,0.000203,-0.000060)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:18.085) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=-0.000019,0.000203,-0.000060), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:18.197) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:18.197) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 8<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.000019,0.000203,-0.000060)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:18.480) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 6<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.000022,0.000416,-0.000247)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:18.481) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=-0.000022,0.000416,-0.000247), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:18.590) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:18.590) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 6<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.000022,0.000416,-0.000247)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:18.784) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 9<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.000077,0.000394,-0.000064)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:18.784) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=-0.000077,0.000394,-0.000064), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:18.894) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:18.894) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 4<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.000077,0.000394,-0.000064)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:18.979) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 1<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.000851,0.000418,0.000340)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:18.979) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=-0.000851,0.000418,0.000340), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:19.088) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:19.088) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 7<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.000851,0.000418,0.000340)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:19.453) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 7<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.001343,0.000749,0.000259)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:19.453) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=-0.001343,0.000749,0.000259), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:19.562) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:19.562) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 2<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.001343,0.000749,0.000259)[0m
+[rgbd_odometry-3] [WARN] [1783877719.665824494] [rgbd_odometry]: Odometry automatically reset to latest computed pose!
+[rgbd_odometry-3] [INFO] [1783877719.668574084] [rgbd_odometry]: Odom: quality=2, std dev=0.000000m|0.000000rad, update time=0.280934s delay=0.373980s
+[rgbd_odometry-3] [INFO] [1783877719.889122301] [rgbd_odometry]: Odom: quality=0, std dev=99.995000m|99.995000rad, update time=0.034105s delay=0.194526s
+[rgbd_odometry-3] [INFO] [1783877720.078451025] [rgbd_odometry]: Odom: quality=19, std dev=0.007496m|0.028277rad, update time=0.094197s delay=0.183853s
+[slam_bridge-5] [WARN] [1783877720.078656986] [slam_bridge]: SLAM tracking recovered - reset_counter=19
+[rtabmap-4] [INFO] [1783877720.328021918] [rtabmap]: rtabmap (27): Rate=0.50s, Limit=0.000s, Conversion=0.0011s, RTAB-Map=0.2463s, Maps update=0.0000s pub=0.0000s delay=0.4335s (local map=1, WM=6)
+[rgbd_odometry-3] [INFO] [1783877720.485243687] [rgbd_odometry]: Odom: quality=30, std dev=0.006697m|0.023394rad, update time=0.066442s delay=0.157318s
+[rgbd_odometry-3] [INFO] [1783877720.578673753] [rgbd_odometry]: Odom: quality=21, std dev=0.006813m|0.023394rad, update time=0.060680s delay=0.150753s
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:19.665) MsgConversion.cpp:2010::getTransform() (getting transform odom -> oak) Lookup would require extrapolation into the future.  Requested time 1783877719.294585 but the latest data is at time 1783877717.827915, when looking up transform from frame [oak] to frame [odom] (wait_for_transform=0.100000)[0m
+[rtabmap-4] [31m[ERROR] (2026-07-12 14:35:15.844) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rtabmap-4] [31m[ERROR] (2026-07-12 14:35:16.425) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rtabmap-4] [31m[ERROR] (2026-07-12 14:35:17.524) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rtabmap-4] [31m[ERROR] (2026-07-12 14:35:18.594) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rtabmap-4] [31m[ERROR] (2026-07-12 14:35:19.566) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rtabmap-4] [33m[ WARN] (2026-07-12 14:35:19.889) CoreWrapper.cpp:1137::odomUpdate() Odometry is reset (identity pose or high variance (19998.000000) detected). Increment map id![0m
+[rtabmap-4] [33m[ WARN] (2026-07-12 14:35:20.325) Rtabmap.cpp:3069::process() Rejected loop closure 24 -> 27: Not enough inliers 14/20 (matches=105) between 24 and 27[0m
+[rgbd_odometry-3] [INFO] [1783877720.789280026] [rgbd_odometry]: Odom: quality=18, std dev=0.007664m|0.024446rad, update time=0.075018s delay=0.194688s
+[rtabmap-4] [INFO] [1783877720.827226042] [rtabmap]: rtabmap (28): Rate=0.50s, Limit=0.000s, Conversion=0.0010s, RTAB-Map=0.2465s, Maps update=0.0001s pub=0.0000s delay=0.3993s (local map=1, WM=6)
+[rgbd_odometry-3] [INFO] [1783877721.278189102] [rgbd_odometry]: Odom: quality=12, std dev=0.014400m|0.026682rad, update time=0.061693s delay=0.150266s
+[rgbd_odometry-3] [INFO] [1783877721.389718245] [rgbd_odometry]: Odom: quality=11, std dev=0.008412m|0.030437rad, update time=0.072601s delay=0.161797s
+[rtabmap-4] [INFO] [1783877721.451604231] [rtabmap]: rtabmap (29): Rate=0.50s, Limit=0.000s, Conversion=0.0012s, RTAB-Map=0.1705s, Maps update=0.0001s pub=0.0000s delay=0.3237s (local map=1, WM=6)
+[rgbd_odometry-3] [WARN] [1783877721.828944919] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 4 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877721.829071004] [rgbd_odometry]: Odom: quality=5, std dev=0.000000m|0.000000rad, update time=0.209989s delay=0.301144s
+[slam_bridge-5] [WARN] [1783877721.829187617] [slam_bridge]: SLAM tracking lost - pausing odometry to PX4
+[rgbd_odometry-3] [INFO] [1783877722.157460974] [rgbd_odometry]: Odom: quality=12, std dev=0.007338m|0.029187rad, update time=0.074210s delay=0.162628s
+[slam_bridge-5] [WARN] [1783877722.159088372] [slam_bridge]: SLAM tracking recovered - reset_counter=20
+[rtabmap-4] [INFO] [1783877722.323615206] [rtabmap]: rtabmap (30): Rate=0.50s, Limit=0.000s, Conversion=0.0011s, RTAB-Map=0.1635s, Maps update=0.0001s pub=0.0000s delay=0.3288s (local map=1, WM=6)
+[rgbd_odometry-3] [INFO] [1783877722.405177905] [rgbd_odometry]: Odom: quality=10, std dev=0.011694m|0.030073rad, update time=0.222651s delay=0.310338s
+[rgbd_odometry-3] [INFO] [1783877722.636992779] [rgbd_odometry]: Odom: quality=10, std dev=0.006084m|0.025722rad, update time=0.224858s delay=0.308813s
+[rgbd_odometry-3] [INFO] [1783877723.399078797] [rgbd_odometry]: Odom: quality=17, std dev=0.006774m|0.025199rad, update time=0.078650s delay=0.170905s
+[rtabmap-4] [INFO] [1783877723.565007027] [rtabmap]: rtabmap (31): Rate=0.50s, Limit=0.000s, Conversion=0.0011s, RTAB-Map=0.1631s, Maps update=0.0001s pub=0.0000s delay=0.3369s (local map=1, WM=6)
+[rgbd_odometry-3] [WARN] [1783877723.653036527] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 4 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877723.653154548] [rgbd_odometry]: Odom: quality=9, std dev=0.000000m|0.000000rad, update time=0.237709s delay=0.324993s
+[slam_bridge-5] [WARN] [1783877723.653320699] [slam_bridge]: SLAM tracking lost - pausing odometry to PX4
+[rgbd_odometry-3] [WARN] [1783877723.946942433] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 3 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877723.947082567] [rgbd_odometry]: Odom: quality=9, std dev=0.000000m|0.000000rad, update time=0.230080s delay=0.318919s
+[rgbd_odometry-3] [INFO] [1783877724.201645625] [rgbd_odometry]: Odom: quality=10, std dev=0.004843m|0.025377rad, update time=0.084498s delay=0.173469s
+[slam_bridge-5] [WARN] [1783877724.201886211] [slam_bridge]: SLAM tracking recovered - reset_counter=21
+[rtabmap-4] [INFO] [1783877724.338908843] [rtabmap]: rtabmap (32): Rate=0.50s, Limit=0.000s, Conversion=0.0011s, RTAB-Map=0.1343s, Maps update=0.0001s pub=0.0000s delay=0.3108s (local map=1, WM=6)
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:21.686) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 4<10" (guess=xyz=0.017694,-0.087486,-0.033062 rpy=0.000142,0.000416,-0.000291)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:21.686) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.017694,-0.087486,-0.033062 rpy=0.000142,0.000416,-0.000291), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:21.827) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:21.827) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 5<10" (guess=xyz=0.017694,-0.087486,-0.033062 rpy=0.000142,0.000416,-0.000291)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:22.255) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 6<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.000505,-0.000274,0.000138)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:22.255) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=-0.000505,-0.000274,0.000138), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:22.402) OdometryF2M.cpp:636::computeTransform() Trial with no guess succeeded![0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:22.487) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 4<10" (guess=xyz=-0.013146,-0.068187,-0.074627 rpy=0.000234,-0.000327,-0.000261)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:22.487) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=-0.013146,-0.068187,-0.074627 rpy=0.000234,-0.000327,-0.000261), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:22.634) OdometryF2M.cpp:636::computeTransform() Trial with no guess succeeded![0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:23.499) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 7<10" (guess=xyz=0.000960,0.000366,0.001490 rpy=-0.000225,-0.000049,0.000376)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:23.499) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000960,0.000366,0.001490 rpy=-0.000225,-0.000049,0.000376), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:23.652) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:23.652) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 9<10" (guess=xyz=0.000960,0.000366,0.001490 rpy=-0.000225,-0.000049,0.000376)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:23.793) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 8<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.000917,-0.000467,0.000704)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:23.794) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=-0.000917,-0.000467,0.000704), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:23.945) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:23.945) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 9<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.000917,-0.000467,0.000704)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:24.399) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 8<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000022,0.000309,0.000336)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:24.399) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=0.000022,0.000309,0.000336), trying again without a guess.[0m
+[rgbd_odometry-3] [INFO] [1783877724.558005932] [rgbd_odometry]: Odom: quality=10, std dev=0.007663m|0.028277rad, update time=0.242980s delay=0.329830s
+[rgbd_odometry-3] [WARN] [1783877725.193294712] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 4 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877725.193421213] [rgbd_odometry]: Odom: quality=8, std dev=0.000000m|0.000000rad, update time=0.172080s delay=0.298582s
+[slam_bridge-5] [WARN] [1783877725.193600549] [slam_bridge]: SLAM tracking lost - pausing odometry to PX4
+[rtabmap-4] [INFO] [1783877725.195838180] [rtabmap]: rtabmap (32): Rate=0.50s, Limit=0.000s, Conversion=0.0011s, RTAB-Map=0.0003s, Maps update=0.0000s pub=0.0000s delay=0.3010s (local map=1, WM=6)
+[rgbd_odometry-3] [INFO] [1783877725.565348344] [rgbd_odometry]: Odom: quality=12, std dev=0.007279m|0.025551rad, update time=0.084110s delay=0.203848s
+[slam_bridge-5] [WARN] [1783877725.565570273] [slam_bridge]: SLAM tracking recovered - reset_counter=22
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:24.555) OdometryF2M.cpp:636::computeTransform() Trial with no guess succeeded![0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:25.101) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 2<10" (guess=xyz=0.000040,-0.107363,-0.034023 rpy=-0.000131,0.000109,-0.000646)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:25.102) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000040,-0.107363,-0.034023 rpy=-0.000131,0.000109,-0.000646), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:25.191) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:25.192) OdometryF2M.cpp:626::computeTransform() Registration failed: "Not enough inliers 8/10 (matches=64) between -1 and 17" (guess=xyz=0.000040,-0.107363,-0.034023 rpy=-0.000131,0.000109,-0.000646)[0m
+[rtabmap-4] [33m[ WARN] (2026-07-12 14:35:20.822) Rtabmap.cpp:3069::process() Rejected loop closure 24 -> 28: Not enough inliers 16/20 (matches=97) between 24 and 28[0m
+[rtabmap-4] [31m[ERROR] (2026-07-12 14:35:25.195) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rgbd_odometry-3] [WARN] [1783877725.794051176] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 4 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877725.794182702] [rgbd_odometry]: Odom: quality=9, std dev=0.000000m|0.000000rad, update time=0.178108s delay=0.266016s
+[slam_bridge-5] [WARN] [1783877725.794315283] [slam_bridge]: SLAM tracking lost - pausing odometry to PX4
+[rtabmap-4] [INFO] [1783877725.796307048] [rtabmap]: rtabmap (32): Rate=0.50s, Limit=0.000s, Conversion=0.0011s, RTAB-Map=0.0001s, Maps update=0.0000s pub=0.0000s delay=0.2682s (local map=1, WM=6)
+[rgbd_odometry-3] [INFO] [1783877726.166695257] [rgbd_odometry]: Odom: quality=10, std dev=0.013242m|0.021189rad, update time=0.248538s delay=0.338527s
+[slam_bridge-5] [WARN] [1783877726.167073545] [slam_bridge]: SLAM tracking recovered - reset_counter=23
+[rgbd_odometry-3] [WARN] [1783877726.471632084] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 4 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877726.471761658] [rgbd_odometry]: Odom: quality=9, std dev=0.000000m|0.000000rad, update time=0.183008s delay=0.310266s
+[slam_bridge-5] [WARN] [1783877726.471929185] [slam_bridge]: SLAM tracking lost - pausing odometry to PX4
+[rtabmap-4] [INFO] [1783877726.475780485] [rtabmap]: rtabmap (32): Rate=0.50s, Limit=0.000s, Conversion=0.0011s, RTAB-Map=0.0001s, Maps update=0.0000s pub=0.0000s delay=0.3143s (local map=1, WM=6)
+[rgbd_odometry-3] [WARN] [1783877726.799853970] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 3 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877726.799985367] [rgbd_odometry]: Odom: quality=6, std dev=0.000000m|0.000000rad, update time=0.250565s delay=0.338479s
+[rgbd_odometry-3] [WARN] [1783877727.201332284] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 2 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877727.201459810] [rgbd_odometry]: Odom: quality=7, std dev=0.000000m|0.000000rad, update time=0.250574s delay=0.339960s
+[rtabmap-4] [INFO] [1783877727.205761721] [rtabmap]: rtabmap (32): Rate=0.50s, Limit=0.000s, Conversion=0.0013s, RTAB-Map=0.0001s, Maps update=0.0000s pub=0.0000s delay=0.3443s (local map=1, WM=6)
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:25.700) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 9<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000215,0.000016,0.000140)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:25.701) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=0.000215,0.000016,0.000140), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:25.792) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:25.792) OdometryF2M.cpp:626::computeTransform() Registration failed: "Not enough inliers 9/10 (matches=72) between -1 and 19" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000215,0.000016,0.000140)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:26.001) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 5<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000233,0.000296,0.000204)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:26.002) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=0.000233,0.000296,0.000204), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:26.163) OdometryF2M.cpp:636::computeTransform() Trial with no guess succeeded![0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:26.375) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 5<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000243,0.000276,-0.000574)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:26.376) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=0.000243,0.000276,-0.000574), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:26.470) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:26.470) OdometryF2M.cpp:626::computeTransform() Registration failed: "Not enough inliers 9/10 (matches=68) between -1 and 21" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000243,0.000276,-0.000574)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:26.636) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 3<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000907,-0.000315,-0.000286)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:26.637) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=0.000907,-0.000315,-0.000286), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:26.798) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:26.798) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 6<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000907,-0.000315,-0.000286)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:27.036) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 8<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000963,-0.000239,-0.000511)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:27.037) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=0.000963,-0.000239,-0.000511), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:27.199) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:27.199) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 7<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000963,-0.000239,-0.000511)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:27.436) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 6<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.001341,-0.000299,-0.000180)[0m
+[rgbd_odometry-3] [WARN] [1783877727.598981914] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 1 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877727.599111775] [rgbd_odometry]: Odom: quality=8, std dev=0.000000m|0.000000rad, update time=0.249274s delay=0.337606s
+[rtabmap-4] [INFO] [1783877728.001405730] [rtabmap]: rtabmap (32): Rate=0.50s, Limit=0.000s, Conversion=0.0013s, RTAB-Map=0.0001s, Maps update=0.0000s pub=0.0000s delay=0.3399s (local map=1, WM=6)
+[rgbd_odometry-3] [WARN] [1783877728.100930546] [rgbd_odometry]: Odometry automatically reset to latest computed pose!
+[rgbd_odometry-3] [INFO] [1783877728.106153232] [rgbd_odometry]: Odom: quality=6, std dev=0.000000m|0.000000rad, update time=0.354599s delay=0.444646s
+[rgbd_odometry-3] [INFO] [1783877728.152966970] [rgbd_odometry]: Odom: quality=0, std dev=99.995000m|99.995000rad, update time=0.034476s delay=0.124794s
+[rgbd_odometry-3] [INFO] [1783877728.302575038] [rgbd_odometry]: Odom: quality=18, std dev=0.011988m|0.026907rad, update time=0.084885s delay=0.241071s
+[slam_bridge-5] [WARN] [1783877728.303039666] [slam_bridge]: SLAM tracking recovered - reset_counter=24
+[rgbd_odometry-3] [INFO] [1783877728.562539071] [rgbd_odometry]: Odom: quality=12, std dev=0.011809m|0.030689rad, update time=0.144459s delay=0.234373s
+[rtabmap-4] [INFO] [1783877728.776059045] [rtabmap]: rtabmap (33): Rate=0.50s, Limit=0.000s, Conversion=0.0010s, RTAB-Map=0.2114s, Maps update=0.0000s pub=0.0000s delay=0.4479s (local map=1, WM=7)
+[rgbd_odometry-3] [INFO] [1783877729.112227918] [rgbd_odometry]: Odom: quality=16, std dev=0.010705m|0.025637rad, update time=0.158821s delay=0.250725s
+[rtabmap-4] [INFO] [1783877729.332468455] [rtabmap]: rtabmap (34): Rate=0.50s, Limit=0.000s, Conversion=0.0009s, RTAB-Map=0.2180s, Maps update=0.0001s pub=0.0000s delay=0.4710s (local map=1, WM=7)
+[rgbd_odometry-3] [WARN] [1783877729.929324598] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 4 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783877729.929451835] [rgbd_odometry]: Odom: quality=9, std dev=0.000000m|0.000000rad, update time=0.177286s delay=0.267960s
+[slam_bridge-5] [WARN] [1783877729.929581377] [slam_bridge]: SLAM tracking lost - pausing odometry to PX4
+[rtabmap-4] [INFO] [1783877729.932377112] [rtabmap]: rtabmap (34): Rate=0.50s, Limit=0.000s, Conversion=0.0012s, RTAB-Map=0.0004s, Maps update=0.0000s pub=0.0000s delay=0.2709s (local map=1, WM=7)
+[rgbd_odometry-3] [INFO] [1783877730.010739005] [rgbd_odometry]: Odom: quality=10, std dev=0.007297m|0.025017rad, update time=0.062407s delay=0.149237s
+[slam_bridge-5] [WARN] [1783877730.011021385] [slam_bridge]: SLAM tracking recovered - reset_counter=25
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[slam_bridge-5] [INFO] [1783877730.100774959] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [slam_bridge-5]: process has finished cleanly [pid 11679]
+[INFO] [imu_filter_madgwick_node-2]: process has finished cleanly [pid 11576]
+[INFO] [rgbd_odometry-3]: process has finished cleanly [pid 11578]
+[component_container-1] [INFO] [1783877730.100775087] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[rtabmap-4] [INFO] [1783877730.100817584] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[imu_filter_madgwick_node-2] [INFO] [1783877730.101057211] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[rgbd_odometry-3] [INFO] [1783877730.101959137] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[rtabmap-4] [INFO] [1783877730.152896437] [rtabmap]: Parameters are not saved (No configuration file provided...)
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:27.437) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=0.001341,-0.000299,-0.000180), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:27.597) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:27.597) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 8<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.001341,-0.000299,-0.000180)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:27.836) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 9<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000998,-0.000165,-0.000552)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:27.836) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=0.000998,-0.000165,-0.000552), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:27.997) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:27.997) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 6<10" (guess=xyz=0.000000,0.000000,0.000000 rpy=0.000998,-0.000165,-0.000552)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:28.100) MsgConversion.cpp:2010::getTransform() (getting transform odom -> oak) Lookup would require extrapolation into the future.  Requested time 1783877727.661490 but the latest data is at time 1783877725.828158, when looking up transform from frame [oak] to frame [odom] (wait_for_transform=0.100000)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:28.476) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 6<10" (guess=xyz=-0.128568,-0.204444,-0.060573 rpy=0.000661,-0.000072,-0.000056)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:28.476) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=-0.128568,-0.204444,-0.060573 rpy=0.000661,-0.000072,-0.000056), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:28.561) OdometryF2M.cpp:636::computeTransform() Trial with no guess succeeded![0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:29.011) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 8<10" (guess=xyz=-0.062631,0.060908,-0.004851 rpy=0.000953,-0.000078,0.000388)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:29.011) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=-0.062631,0.060908,-0.004851 rpy=0.000953,-0.000078,0.000388), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:29.110) OdometryF2M.cpp:636::computeTransform() Trial with no guess succeeded![0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:29.818) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 8<10" (guess=xyz=0.074527,-0.015870,0.004956 rpy=0.000255,0.000357,-0.000815)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:29.818) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.074527,-0.015870,0.004956 rpy=0.000255,0.000357,-0.000815), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:29.928) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 14:35:29.928) OdometryF2M.cpp:626::computeTransform() Registration failed: "Too low inliers after bundle adjustment: 9<10" (guess=xyz=0.074527,-0.015870,0.004956 rpy=0.000255,0.000357,-0.000815)[0m
+[rtabmap-4] [31m[ERROR] (2026-07-12 14:35:25.796) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rtabmap-4] [31m[ERROR] (2026-07-12 14:35:26.475) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rtabmap-4] [31m[ERROR] (2026-07-12 14:35:27.205) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rtabmap-4] [31m[ERROR] (2026-07-12 14:35:28.001) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rtabmap-4] [33m[ WARN] (2026-07-12 14:35:28.153) CoreWrapper.cpp:1137::odomUpdate() Odometry is reset (identity pose or high variance (19998.000000) detected). Increment map id![0m
+[rtabmap-4] [33m[ WARN] (2026-07-12 14:35:28.774) Rtabmap.cpp:3069::process() Rejected loop closure 12 -> 33: Not enough inliers 9/20 (matches=102) between 12 and 33[0m
+[rtabmap-4] [33m[ WARN] (2026-07-12 14:35:29.327) Rtabmap.cpp:3069::process() Rejected loop closure 27 -> 34: Not enough inliers 19/20 (matches=119) between 27 and 34[0m
+[rtabmap-4] [31m[ERROR] (2026-07-12 14:35:29.932) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rtabmap-4] rtabmap: Saving database/long-term memory... (located at /home/jetson-evtol/.ros/rtabmap.db)
+[rtabmap-4] rtabmap: Saving database/long-term memory...done! (located at /home/jetson-evtol/.ros/rtabmap.db, 27 MB)
+[INFO] [rtabmap-4]: process has finished cleanly [pid 11580]
+[INFO] [component_container-1]: process has finished cleanly [pid 11574]
