@@ -1,32 +1,29 @@
 rtabmap:
   ros__parameters:
-    stereo: false                   
-    subscribe_depth: true           
-    subscribe_rgb: true             
-    frame_id: 'oak_rgb_camera_optical_frame' 
-    approx_sync: true               
-    qos_image: 1       
+    stereo: false
+    subscribe_depth: true
+    subscribe_rgb: true
+    frame_id: 'oak'                # Same base frame as rgbd_odometry
+    approx_sync: true
+    qos_image: 1
     qos_camera_info: 1
     qos_odom: 1
-    
-    # --- FIX: Drop queues to match 5 FPS without history buffering ---
-    queue_size: 10                  
-    sync_queue_size: 10           
 
-    # --- Pure Localization ---
-    Mem/IncrementalMemory: "true" 
-    Mem/InitWMWithAllNodes: false     
-    
-    Rtabmap/DetectionRate: '2.0'        
-    Grid/FromDepth: 'false' 
-    Grid/CellSize: '0.10'               
-    Cloud/VoxelSize: '0.05'             
+    queue_size: 10
+    sync_queue_size: 10
+
+    # --- Mapping mode (set IncrementalMemory to "false" + InitWMWithAllNodes
+    # to "true" for pure localization on a previously saved map) ---
+    Mem/IncrementalMemory: "true"
+    Mem/InitWMWithAllNodes: 'false'
+
+    Rtabmap/DetectionRate: '2.0'   # Loop-closure detection at 2 Hz is plenty
+    Grid/FromDepth: 'false'
+    Grid/CellSize: '0.10'
+    Cloud/VoxelSize: '0.05'
     Cloud/MaxDepth: '4.5'
 
-    subscribe_imu: true
-    imu_topic: "/imu/data"
     wait_for_transform: 0.2
 
     RGBD/OptimizeFromGraphEnd: "false"
-    RGBD/IMUUpdateInterval: "0.01"
-    Optimizer/GravitySigma: "0.3" 
+    Optimizer/GravitySigma: "0.3"

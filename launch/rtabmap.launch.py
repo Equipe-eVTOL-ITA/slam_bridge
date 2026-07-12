@@ -1,10 +1,8 @@
 from launch import LaunchDescription
 from launch_ros.actions import Node
-from launch.actions import IncludeLaunchDescription
+from launch.actions import IncludeLaunchDescription, TimerAction
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from ament_index_python.packages import get_package_share_directory
-from launch_ros.actions import Node
-from launch.actions import TimerAction
 import os
 
 def generate_launch_description():
@@ -34,8 +32,9 @@ def generate_launch_description():
             'use_mag': False,          # OAK-D Pro não tem magnetômetro
             'publish_tf': False,       # RTAB-Map gerencia o TF
             'world_frame': 'enu',
-            'fixed_frame': 'oak-imu_frame',
-            'base_link_frame': 'oak-imu_frame',
+            # Frame real publicado pelo driver (URDF): oak_imu_frame (underscore)
+            'fixed_frame': 'oak_imu_frame',
+            'base_link_frame': 'oak_imu_frame',
             'gain': 0.01,              # Ganho baixo = confia mais no gyro
             'zeta': 0.0,
             'frequency': 200.0,        # OAK-D Pro IMU roda a 200Hz
@@ -80,18 +79,11 @@ def generate_launch_description():
         arguments=['-d'] 
     )
 
-    #no para fazer a transformacao ( tf ) dos dados vindos do imu para dados que se relacionam com os da camera.
-    imu_tf_node = Node(
-    package='tf2_ros',
-    executable='static_transform_publisher',
-    name='oak_imu_tf',
-    # Ajuste xyz e rpy conforme a posição física do IMU na OAK-D
-    # Valores padrão da OAK-D Pro (câmera olhando para frente)
-    arguments=['0', '0', '0',    # x y z (translação em metros)
-               '0', '0', '0',    # roll pitch yaw
-               'oak_rgb_camera_optical_frame',  # frame pai
-               'oak_imu_frame'],                # frame filho
-)
+    # NOTA: o TF do IMU (oak_imu_frame) ja e publicado pelo driver via URDF
+    # com a rotacao correta de calibracao. Um static_transform_publisher
+    # manual com rotacao identidade a partir do frame OPTICO (z-forward)
+    # estava errado e conflitava com o TF do driver. Verifique com:
+    #   ros2 run tf2_ros tf2_echo oak oak_imu_frame
 
     # SLAM Bridge node - converts RTAB-Map odometry to PX4 format (delayed start)
     slam_bridge_node = TimerAction(
@@ -115,6 +107,5 @@ def generate_launch_description():
         imu_filter_node,
         visual_odometry_node,
         rtabmap_node,
-        imu_tf_node,
         slam_bridge_node
     ])
