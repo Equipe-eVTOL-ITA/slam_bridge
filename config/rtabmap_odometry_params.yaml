@@ -12,12 +12,12 @@ rgbd_odometry:
     qos_camera_info: 1
 
     # --- Prevent old frames from waiting in line ---
-    queue_size: 10
-    sync_queue_size: 10
+    queue_size: 5
+    sync_queue_size: 5
 
     # --- COMPUTE SPEED OPTIMIZATIONS (Saves CPU cycles per frame) ---
     Odom/ResetCountdown: '5'
-    Odom/ImageDecimation: '2'      # Extract features at half resolution (big Jetson win)
+    Odom/ImageDecimation: '4'      # Extract features at half resolution (big Jetson win)
     Vis/MinInliers: '10'
     Vis/MaxFeatures: '400'
     Odom/Strategy: '0'             # 0 = Frame-to-Map (Best for localization tracking)
