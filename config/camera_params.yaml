@@ -20,7 +20,9 @@
       i_max_q_size: 2
 
     stereo:
-      i_fps: 5s.0
+      i_fps: 5.0
       i_align_depth: true        # Depth registered to the RGB frame (required by rtabmap RGBD)
-      i_depth_preset: HIGH_ACCURACY # Lower on-device latency than HIGH_ACCURACY -> smaller odom delay
+      # Valid presets in depthai-ros v2.12.1: HIGH_ACCURACY, HIGH_DENSITY,
+      # DEFAULT, FACE, HIGH_DETAIL, ROBOTICS. Anything else aborts the container.
+      i_depth_preset: HIGH_ACCURACY
       i_max_q_size: 2

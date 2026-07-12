@@ -1,0 +1,248 @@
+[INFO] [launch]: All log files can be found below /home/evtol/.ros/log/2026-07-12-15-20-11-582512-evtol-ian-101818
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [component_container-1]: process started with pid [101835]
+[INFO] [imu_filter_madgwick_node-2]: process started with pid [101837]
+[INFO] [rgbd_odometry-3]: process started with pid [101839]
+[INFO] [rtabmap-4]: process started with pid [101841]
+[imu_filter_madgwick_node-2] [INFO] [1783880411.944014255] [imu_filter]: Starting ImuFilter
+[imu_filter_madgwick_node-2] [INFO] [1783880411.944445744] [imu_filter]: Using dt computed from message headers
+[imu_filter_madgwick_node-2] [INFO] [1783880411.944463668] [imu_filter]: The gravity vector is kept in the IMU message.
+[imu_filter_madgwick_node-2] [INFO] [1783880411.944606039] [imu_filter]: Imu filter gain set to 0.010000
+[imu_filter_madgwick_node-2] [INFO] [1783880411.944626096] [imu_filter]: Gyro drift bias set to 0.000000
+[imu_filter_madgwick_node-2] [INFO] [1783880411.944634743] [imu_filter]: Magnetometer bias values: 0.000000 0.000000 0.000000
+[component_container-1] [INFO] [1783880412.098648828] [oak_container]: Load Library: /opt/ros/humble/lib/librobot_state_publisher_node.so
+[component_container-1] [INFO] [1783880412.101898752] [oak_container]: Found class: rclcpp_components::NodeFactoryTemplate<robot_state_publisher::RobotStatePublisher>
+[component_container-1] [INFO] [1783880412.102002962] [oak_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<robot_state_publisher::RobotStatePublisher>
+[component_container-1] [INFO] [1783880412.141332892] [oak_state_publisher]: got segment oak
+[component_container-1] [INFO] [1783880412.141437412] [oak_state_publisher]: got segment oak-d-base-frame
+[component_container-1] [INFO] [1783880412.141446736] [oak_state_publisher]: got segment oak_imu_frame
+[component_container-1] [INFO] [1783880412.141451957] [oak_state_publisher]: got segment oak_left_camera_frame
+[component_container-1] [INFO] [1783880412.141457495] [oak_state_publisher]: got segment oak_left_camera_optical_frame
+[component_container-1] [INFO] [1783880412.141463378] [oak_state_publisher]: got segment oak_model_origin
+[component_container-1] [INFO] [1783880412.141468505] [oak_state_publisher]: got segment oak_rgb_camera_frame
+[component_container-1] [INFO] [1783880412.141473295] [oak_state_publisher]: got segment oak_rgb_camera_optical_frame
+[component_container-1] [INFO] [1783880412.141479519] [oak_state_publisher]: got segment oak_right_camera_frame
+[component_container-1] [INFO] [1783880412.141483842] [oak_state_publisher]: got segment oak_right_camera_optical_frame
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/oak_state_publisher' in container '/oak_container'
+[component_container-1] [INFO] [1783880412.165825629] [oak_container]: Load Library: /opt/ros/humble/lib/libdepthai_ros_driver.so
+[rgbd_odometry-3] [INFO] [1783880412.259391309] [rgbd_odometry]: Odometry: frame_id               = oak
+[rgbd_odometry-3] [INFO] [1783880412.259877361] [rgbd_odometry]: Odometry: odom_frame_id          = odom
+[rgbd_odometry-3] [INFO] [1783880412.259893422] [rgbd_odometry]: Odometry: publish_tf             = true
+[rgbd_odometry-3] [INFO] [1783880412.259899308] [rgbd_odometry]: Odometry: wait_for_transform     = 0.100000
+[rgbd_odometry-3] [INFO] [1783880412.259918571] [rgbd_odometry]: Odometry: log_to_rosout_level    = 4
+[rgbd_odometry-3] [INFO] [1783880412.259943620] [rgbd_odometry]: Odometry: initial_pose           = xyz=0.000000,0.000000,0.000000 rpy=0.000000,-0.000000,0.000000
+[rgbd_odometry-3] [INFO] [1783880412.259950159] [rgbd_odometry]: Odometry: ground_truth_frame_id  = 
+[rgbd_odometry-3] [INFO] [1783880412.259954880] [rgbd_odometry]: Odometry: ground_truth_base_frame_id = oak
+[rgbd_odometry-3] [INFO] [1783880412.259959911] [rgbd_odometry]: Odometry: config_path            = 
+[rgbd_odometry-3] [INFO] [1783880412.259964835] [rgbd_odometry]: Odometry: publish_null_when_lost = true
+[rgbd_odometry-3] [INFO] [1783880412.259969608] [rgbd_odometry]: Odometry: publish_compressed_sensor_data = false
+[rgbd_odometry-3] [INFO] [1783880412.259976893] [rgbd_odometry]: Odometry: guess_frame_id         = 
+[rgbd_odometry-3] [INFO] [1783880412.259981643] [rgbd_odometry]: Odometry: guess_min_translation  = 0.000000
+[rgbd_odometry-3] [INFO] [1783880412.259987825] [rgbd_odometry]: Odometry: guess_min_rotation     = 0.000000
+[rgbd_odometry-3] [INFO] [1783880412.259993099] [rgbd_odometry]: Odometry: guess_min_time         = 0.000000
+[rgbd_odometry-3] [INFO] [1783880412.259999540] [rgbd_odometry]: Odometry: expected_update_rate   = 0.000000 Hz
+[rgbd_odometry-3] [INFO] [1783880412.260005741] [rgbd_odometry]: Odometry: max_update_rate        = 0.000000 Hz
+[rgbd_odometry-3] [INFO] [1783880412.260013710] [rgbd_odometry]: Odometry: min_update_rate        = 0.000000 Hz
+[rgbd_odometry-3] [INFO] [1783880412.260021618] [rgbd_odometry]: Odometry: wait_imu_to_init       = true
+[rgbd_odometry-3] [INFO] [1783880412.260027960] [rgbd_odometry]: Odometry: always_check_imu_tf    = false
+[rgbd_odometry-3] [INFO] [1783880412.260032641] [rgbd_odometry]: Odometry: sensor_data_compression_format = .jpg
+[rgbd_odometry-3] [INFO] [1783880412.260040903] [rgbd_odometry]: Odometry: sensor_data_parallel_compression = true
+[rgbd_odometry-3] [INFO] [1783880412.260055648] [rgbd_odometry]: Odometry: stereoParams_=0 visParams_=1 icpParams_=0
+[rgbd_odometry-3] [INFO] [1783880412.261735749] [rgbd_odometry]: Setting odometry parameter "Odom/ImageDecimation"="4"
+[rgbd_odometry-3] [INFO] [1783880412.262057789] [rgbd_odometry]: Setting odometry parameter "Odom/ResetCountdown"="5"
+[rtabmap-4] [WARN] [1783880412.265509716] [rtabmap]: Parameter "queue_size" has been renamed to "sync_queue_size" and will be removed in future versions! The value (5) is copied to "sync_queue_size".
+[rgbd_odometry-3] [INFO] [1783880412.268991529] [rgbd_odometry]: Setting odometry parameter "Vis/CorFlowWinSize"="11"
+[rgbd_odometry-3] [INFO] [1783880412.269474025] [rgbd_odometry]: Setting odometry parameter "Vis/MaxFeatures"="400"
+[rgbd_odometry-3] [INFO] [1783880412.269569718] [rgbd_odometry]: Setting odometry parameter "Vis/MinInliers"="10"
+[component_container-1] [INFO] [1783880412.274595710] [oak_container]: Found class: rclcpp_components::NodeFactoryTemplate<depthai_ros_driver::Camera>
+[component_container-1] [INFO] [1783880412.279221801] [oak_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<depthai_ros_driver::Camera>
+[rtabmap-4] [INFO] [1783880412.279969506] [rtabmap]: rtabmap(maps): latch                      = true
+[rtabmap-4] [INFO] [1783880412.279999647] [rtabmap]: rtabmap(maps): map_filter_radius          = 0.000000
+[rtabmap-4] [INFO] [1783880412.280017087] [rtabmap]: rtabmap(maps): map_filter_angle           = 30.000000
+[rtabmap-4] [INFO] [1783880412.280025826] [rtabmap]: rtabmap(maps): map_cleanup                = true
+[rtabmap-4] [INFO] [1783880412.280032396] [rtabmap]: rtabmap(maps): map_always_update          = false
+[rtabmap-4] [INFO] [1783880412.280038536] [rtabmap]: rtabmap(maps): map_empty_ray_tracing      = true
+[rtabmap-4] [INFO] [1783880412.280044627] [rtabmap]: rtabmap(maps): cloud_output_voxelized     = true
+[rtabmap-4] [INFO] [1783880412.280050898] [rtabmap]: rtabmap(maps): cloud_subtract_filtering   = false
+[rtabmap-4] [INFO] [1783880412.280056826] [rtabmap]: rtabmap(maps): cloud_subtract_filtering_min_neighbors = 2
+[rtabmap-4] [INFO] [1783880412.280087813] [rtabmap]: rtabmap(maps): octomap_tree_depth         = 16
+[rgbd_odometry-3] [INFO] [1783880412.284191423] [rgbd_odometry]: odometry: Subscribing to IMU topic /imu/data
+[rgbd_odometry-3] [INFO] [1783880412.284226419] [rgbd_odometry]: odometry: qos_imu = 0
+[rgbd_odometry-3] [INFO] [1783880412.284234686] [rgbd_odometry]: odometry: imu_queue_size = 200
+[rgbd_odometry-3] [WARN] [1783880412.284945112] [rgbd_odometry]: Parameter "queue_size" has been renamed to "sync_queue_size" and will be removed in future versions! The value (5) is copied to "sync_queue_size".
+[rgbd_odometry-3] [INFO] [1783880412.285273439] [rgbd_odometry]: RGBDOdometry: approx_sync    = true
+[rgbd_odometry-3] [INFO] [1783880412.285292450] [rgbd_odometry]: RGBDOdometry: approx_sync_max_interval = 0.034000
+[rgbd_odometry-3] [INFO] [1783880412.285308567] [rgbd_odometry]: RGBDOdometry: topic_queue_size = 10
+[rgbd_odometry-3] [INFO] [1783880412.285314354] [rgbd_odometry]: RGBDOdometry: sync_queue_size  = 5
+[rgbd_odometry-3] [INFO] [1783880412.285319406] [rgbd_odometry]: RGBDOdometry: qos             = 0
+[rgbd_odometry-3] [INFO] [1783880412.285324062] [rgbd_odometry]: RGBDOdometry: qos_camera_info = 1
+[rgbd_odometry-3] [INFO] [1783880412.285328685] [rgbd_odometry]: RGBDOdometry: subscribe_rgbd = false
+[rgbd_odometry-3] [INFO] [1783880412.285333335] [rgbd_odometry]: RGBDOdometry: rgbd_cameras   = 1
+[rgbd_odometry-3] [INFO] [1783880412.285338088] [rgbd_odometry]: RGBDOdometry: keep_color     = false
+[rgbd_odometry-3] [INFO] [1783880412.285342882] [rgbd_odometry]: RGBDOdometry: rgb_transport   = raw
+[rgbd_odometry-3] [INFO] [1783880412.285347494] [rgbd_odometry]: RGBDOdometry: depth_transport = raw
+[component_container-1] [INFO] [1783880412.288453334] [oak_container]: Load Library: /opt/ros/humble/lib/librectify.so
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/oak' in container '/oak_container'
+[rgbd_odometry-3] [INFO] [1783880412.290026775] [rgbd_odometry]: 
+[rgbd_odometry-3] rgbd_odometry subscribed to (approx sync, max interval=0.034000s, topic_queue_size=10, sync_queue_size=5):
+[rgbd_odometry-3]    /oak/rgb/image_raw,
+[rgbd_odometry-3]    /oak/stereo/image_raw,
+[rgbd_odometry-3]    /oak/rgb/camera_info
+[component_container-1] [INFO] [1783880412.290713313] [oak_container]: Found class: rclcpp_components::NodeFactoryTemplate<image_proc::RectifyNode>
+[component_container-1] [INFO] [1783880412.290745558] [oak_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<image_proc::RectifyNode>
+[rtabmap-4] [INFO] [1783880412.300026635] [rtabmap]: rtabmap: frame_id      = oak
+[rtabmap-4] [INFO] [1783880412.300084432] [rtabmap]: rtabmap: map_frame_id  = map
+[rtabmap-4] [INFO] [1783880412.300090622] [rtabmap]: rtabmap: log_to_rosout_level  = 4
+[rtabmap-4] [INFO] [1783880412.300096129] [rtabmap]: rtabmap: initial_pose  = 
+[rtabmap-4] [INFO] [1783880412.300101021] [rtabmap]: rtabmap: use_action_for_goal  = false
+[rtabmap-4] [INFO] [1783880412.300105779] [rtabmap]: rtabmap: tf_delay      = 0.050000
+[rtabmap-4] [INFO] [1783880412.300114714] [rtabmap]: rtabmap: tf_tolerance  = 0.100000
+[rtabmap-4] [INFO] [1783880412.300120364] [rtabmap]: rtabmap: odom_sensor_sync   = false
+[rtabmap-4] [INFO] [1783880412.300125397] [rtabmap]: rtabmap: pub_loc_pose_only_when_localizing = false
+[rtabmap-4] [INFO] [1783880412.300130178] [rtabmap]: rtabmap: wait_for_transform = 0.200000
+[rtabmap-4] [INFO] [1783880412.300135880] [rtabmap]: rtabmap: gen_scan  = false
+[rtabmap-4] [INFO] [1783880412.300140636] [rtabmap]: rtabmap: gen_depth  = false
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/rectify_color_node' in container '/oak_container'
+[rtabmap-4] [INFO] [1783880412.322457843] [rtabmap]: Setting RTAB-Map parameter "Grid/CellSize"="0.10" (rosparam)
+[rtabmap-4] [INFO] [1783880412.326946809] [rtabmap]: Setting RTAB-Map parameter "Mem/IncrementalMemory"="true" (rosparam)
+[rtabmap-4] [INFO] [1783880412.327025728] [rtabmap]: Setting RTAB-Map parameter "Mem/InitWMWithAllNodes"="false" (rosparam)
+[rtabmap-4] [INFO] [1783880412.328567777] [rtabmap]: Setting RTAB-Map parameter "Optimizer/GravitySigma"="0.3" (rosparam)
+[rtabmap-4] [INFO] [1783880412.330512484] [rtabmap]: Setting RTAB-Map parameter "RGBD/OptimizeFromGraphEnd"="false" (rosparam)
+[rtabmap-4] [INFO] [1783880412.331628193] [rtabmap]: Setting RTAB-Map parameter "Rtabmap/DetectionRate"="1.0" (rosparam)
+[rtabmap-4] [INFO] [1783880412.339362429] [rtabmap]: RTAB-Map detection rate = 1.000000 Hz
+[rtabmap-4] [INFO] [1783880412.340739449] [rtabmap]: rtabmap: Deleted database "/home/evtol/.ros/rtabmap.db" (--delete_db_on_start or -d are set).
+[rtabmap-4] [INFO] [1783880412.340793090] [rtabmap]: rtabmap: Using database from "/home/evtol/.ros/rtabmap.db" (0 MB).
+[component_container-1] [INFO] [1783880413.292334563] [oak]: Starting camera.
+[component_container-1] [INFO] [1783880413.297379814] [oak]: No ip/mxid specified, connecting to the next available device.
+[INFO] [slam_bridge-5]: process started with pid [101965]
+[rtabmap-4] [INFO] [1783880415.184835967] [rtabmap]: rtabmap: Database version = "0.22.1".
+[rtabmap-4] [INFO] [1783880415.184970280] [rtabmap]: rtabmap: SLAM mode (Mem/IncrementalMemory=true)
+[rtabmap-4] [INFO] [1783880415.288632234] [rtabmap]: Setup callbacks
+[rtabmap-4] [INFO] [1783880415.289629754] [rtabmap]: rtabmap: subscribe_depth = true
+[rtabmap-4] [INFO] [1783880415.289742914] [rtabmap]: rtabmap: subscribe_rgb = true
+[rtabmap-4] [INFO] [1783880415.289772107] [rtabmap]: rtabmap: subscribe_stereo = false
+[rtabmap-4] [INFO] [1783880415.289801321] [rtabmap]: rtabmap: subscribe_rgbd = false (rgbd_cameras=1)
+[rtabmap-4] [INFO] [1783880415.289861142] [rtabmap]: rtabmap: subscribe_sensor_data = false
+[rtabmap-4] [INFO] [1783880415.289885030] [rtabmap]: rtabmap: subscribe_odom_info = false
+[rtabmap-4] [INFO] [1783880415.289901111] [rtabmap]: rtabmap: subscribe_user_data = false
+[rtabmap-4] [INFO] [1783880415.289915897] [rtabmap]: rtabmap: subscribe_scan = false
+[rtabmap-4] [INFO] [1783880415.289929923] [rtabmap]: rtabmap: subscribe_scan_cloud = false
+[rtabmap-4] [INFO] [1783880415.289946150] [rtabmap]: rtabmap: subscribe_scan_descriptor = false
+[rtabmap-4] [INFO] [1783880415.289961612] [rtabmap]: rtabmap: topic_queue_size = 10
+[rtabmap-4] [INFO] [1783880415.289979161] [rtabmap]: rtabmap: sync_queue_size  = 5
+[rtabmap-4] [INFO] [1783880415.290101221] [rtabmap]: rtabmap: qos_image       = 1
+[rtabmap-4] [INFO] [1783880415.290128615] [rtabmap]: rtabmap: qos_camera_info = 1
+[rtabmap-4] [INFO] [1783880415.290146520] [rtabmap]: rtabmap: qos_scan        = 0
+[rtabmap-4] [INFO] [1783880415.290160786] [rtabmap]: rtabmap: qos_odom        = 1
+[rtabmap-4] [INFO] [1783880415.290189991] [rtabmap]: rtabmap: qos_user_data   = 0
+[rtabmap-4] [INFO] [1783880415.290209901] [rtabmap]: rtabmap: approx_sync     = true
+[rtabmap-4] [INFO] [1783880415.290273025] [rtabmap]: Setup depth callback
+[rtabmap-4] [INFO] [1783880415.319840631] [rtabmap]: 
+[rtabmap-4] rtabmap subscribed to (approx sync):
+[rtabmap-4]    /odom_local \
+[rtabmap-4]    /oak/rgb/image_raw \
+[rtabmap-4]    /oak/stereo/image_raw \
+[rtabmap-4]    /oak/rgb/camera_info
+[slam_bridge-5] [INFO] [1783880415.343904772] [slam_bridge]: slam_odometry_topic: /odom_local
+[slam_bridge-5] [INFO] [1783880415.344383398] [slam_bridge]: px4_odometry_output_topic: /fmu/in/vehicle_visual_odometry
+[slam_bridge-5] [INFO] [1783880415.344434529] [slam_bridge]: timesync_topic: /fmu/out/timesync_status
+[slam_bridge-5] [INFO] [1783880415.344455366] [slam_bridge]: variance_floor: 0.100
+[slam_bridge-5] [INFO] [1783880415.359088349] [slam_bridge]: SLAM Bridge initialized - converting ENU -> NED with Covariance & Velocity
+[component_container-1] [INFO] [1783880416.053951569] [oak]: Camera with MXID: 1844301011E9AC0F00 and Name: 1.2 connected!
+[component_container-1] [INFO] [1783880416.058774536] [oak]: USB SPEED: SUPER
+[component_container-1] [INFO] [1783880416.106980683] [oak]: Device type: OAK-D-PRO
+[component_container-1] [INFO] [1783880416.111763840] [oak]: Pipeline type: RGBD
+[component_container-1] [INFO] [1783880416.800920289] [oak]: Finished setting up pipeline.
+[imu_filter_madgwick_node-2] [INFO] [1783880417.200166801] [imu_filter]: First IMU message received.
+[component_container-1] [INFO] [1783880417.231672347] [oak]: Camera ready!
+[rgbd_odometry-3] [WARN] [1783880417.292388713] [rgbd_odometry]: rgbd_odometry: Did not receive data since 5 seconds! Make sure the input topics are published ("$ rostopic hz my_topic") and the timestamps in their header are set. 
+[rgbd_odometry-3] rgbd_odometry subscribed to (approx sync, max interval=0.034000s, topic_queue_size=10, sync_queue_size=5):
+[rgbd_odometry-3]    /oak/rgb/image_raw,
+[rgbd_odometry-3]    /oak/stereo/image_raw,
+[rgbd_odometry-3]    /oak/rgb/camera_info
+[rgbd_odometry-3] [INFO] [1783880417.333227834] [rgbd_odometry]: Odom: quality=0, std dev=99.995000m|99.995000rad, update time=0.016574s delay=0.125594s
+[slam_bridge-5] [WARN] [1783880417.333628260] [slam_bridge]: SLAM tracking lost - pausing odometry to PX4
+[rtabmap-4] [INFO] [1783880417.490275633] [rtabmap]: rtabmap (1): Rate=1.00s, Limit=0.000s, Conversion=0.0083s, RTAB-Map=0.1424s, Maps update=0.0001s pub=0.0000s delay=0.2827s (local map=1, WM=1)
+[rgbd_odometry-3] [WARN] [1783880417.550278612] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 4 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783880417.550328300] [rgbd_odometry]: Odom: quality=0, std dev=0.000000m|0.000000rad, update time=0.053661s delay=0.142755s
+[rgbd_odometry-3] [WARN] [1783880418.781056941] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 3 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783880418.781236979] [rgbd_odometry]: Odom: quality=0, std dev=0.000000m|0.000000rad, update time=0.078411s delay=0.173818s
+[rtabmap-4] [INFO] [1783880418.789432491] [rtabmap]: rtabmap (1): Rate=1.00s, Limit=0.000s, Conversion=0.0053s, RTAB-Map=0.0003s, Maps update=0.0000s pub=0.0000s delay=0.1820s (local map=1, WM=1)
+[rgbd_odometry-3] [WARN] [1783880419.138668107] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 2 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783880419.138918290] [rgbd_odometry]: Odom: quality=0, std dev=0.000000m|0.000000rad, update time=0.032081s delay=0.131564s
+[rgbd_odometry-3] [WARN] [1783880419.335853004] [rgbd_odometry]: Odometry lost! Odometry will be reset after next 1 consecutive unsuccessful odometry updates...
+[rgbd_odometry-3] [INFO] [1783880419.336068077] [rgbd_odometry]: Odom: quality=0, std dev=0.000000m|0.000000rad, update time=0.028332s delay=0.128693s
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 15:20:17.316) Odometry.cpp:324::process() Updated initial pose from xyz=0.000000,0.000000,0.000000 rpy=0.000000,-0.000000,0.000000 to xyz=0.000000,0.000000,0.000000 rpy=2.746867,-1.520985,0.788832 with IMU orientation[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 15:20:17.524) OdometryF2M.cpp:626::computeTransform() Registration failed: "Not enough inliers 0/10 (matches=16) between -1 and 2" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.000190,0.000004,0.000453)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 15:20:17.524) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=-0.000190,0.000004,0.000453), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 15:20:17.550) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 15:20:17.550) OdometryF2M.cpp:626::computeTransform() Registration failed: "Not enough inliers 0/10 (matches=10) between -1 and 2" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.000190,0.000004,0.000453)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 15:20:18.757) OdometryF2M.cpp:626::computeTransform() Registration failed: "Not enough inliers 0/10 (matches=15) between -1 and 3" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.001226,0.001018,0.000806)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 15:20:18.758) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=-0.001226,0.001018,0.000806), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 15:20:18.780) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 15:20:18.780) OdometryF2M.cpp:626::computeTransform() Registration failed: "Not enough inliers 0/10 (matches=9) between -1 and 3" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.001226,0.001018,0.000806)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 15:20:19.119) OdometryF2M.cpp:626::computeTransform() Registration failed: "Not enough inliers 0/10 (matches=7) between -1 and 4" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.000875,0.001285,0.000359)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 15:20:19.119) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=-0.000875,0.001285,0.000359), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 15:20:19.138) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 15:20:19.138) OdometryF2M.cpp:626::computeTransform() Registration failed: "Not enough inliers 0/10 (matches=4) between -1 and 4" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.000875,0.001285,0.000359)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 15:20:19.321) OdometryF2M.cpp:626::computeTransform() Registration failed: "Not enough inliers 0/10 (matches=8) between -1 and 5" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.001114,0.001365,0.000807)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 15:20:19.321) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=-0.001114,0.001365,0.000807), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 15:20:19.335) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 15:20:19.335) OdometryF2M.cpp:626::computeTransform() Registration failed: "Not enough inliers 0/10 (matches=3) between -1 and 5" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.001114,0.001365,0.000807)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 15:20:19.507) OdometryF2M.cpp:626::computeTransform() Registration failed: "Not enough inliers 0/10 (matches=9) between -1 and 6" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.001518,0.001329,0.000744)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 15:20:19.507) OdometryF2M.cpp:319::computeTransform() Failed to find a transformation with the provided guess (xyz=0.000000,0.000000,0.000000 rpy=-0.001518,0.001329,0.000744), trying again without a guess.[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 15:20:19.515) OdometryF2M.cpp:616::computeTransform() Trial with no guess still fail.[0m
+[rgbd_odometry-3] [WARN] [1783880419.618196120] [rgbd_odometry]: Odometry automatically reset to latest computed pose!
+[rgbd_odometry-3] [INFO] [1783880419.618785413] [rgbd_odometry]: Odom: quality=0, std dev=0.000000m|0.000000rad, update time=0.118819s delay=0.211444s
+[rgbd_odometry-3] [INFO] [1783880419.707129264] [rgbd_odometry]: Odom: quality=0, std dev=99.995000m|99.995000rad, update time=0.006526s delay=0.099817s
+[rgbd_odometry-3] [INFO] [1783880419.915552330] [rgbd_odometry]: Odom: quality=48, std dev=0.005710m|0.021909rad, update time=0.017144s delay=0.108266s
+[slam_bridge-5] [WARN] [1783880419.915797399] [slam_bridge]: SLAM tracking recovered - reset_counter=1
+[rtabmap-4] [INFO] [1783880420.136095024] [rtabmap]: rtabmap (2): Rate=1.00s, Limit=0.000s, Conversion=0.0041s, RTAB-Map=0.2137s, Maps update=0.0001s pub=0.0001s delay=0.3288s (local map=1, WM=2)
+[rgbd_odometry-3] [INFO] [1783880420.202251758] [rgbd_odometry]: Odom: quality=40, std dev=0.008105m|0.026529rad, update time=0.023028s delay=0.194987s
+[rgbd_odometry-3] [INFO] [1783880420.506066170] [rgbd_odometry]: Odom: quality=53, std dev=0.005763m|0.023506rad, update time=0.010029s delay=0.098868s
+[rgbd_odometry-3] [INFO] [1783880420.711492102] [rgbd_odometry]: Odom: quality=44, std dev=0.007149m|0.036672rad, update time=0.014928s delay=0.104319s
+[rgbd_odometry-3] [INFO] [1783880421.152126700] [rgbd_odometry]: Odom: quality=48, std dev=0.002465m|0.016851rad, update time=0.043611s delay=0.144998s
+[rgbd_odometry-3] [INFO] [1783880421.354181007] [rgbd_odometry]: Odom: quality=38, std dev=0.003474m|0.021630rad, update time=0.044658s delay=0.147080s
+[rtabmap-4] [INFO] [1783880421.438838153] [rtabmap]: rtabmap (3): Rate=1.00s, Limit=0.000s, Conversion=0.0035s, RTAB-Map=0.2811s, Maps update=0.0001s pub=0.0000s delay=0.4317s (local map=1, WM=2)
+[rgbd_odometry-3] [WARN] [1783880421.645783960] [rgbd_odometry]: The time difference between rgb and depth frames is high (diff=0.026516s, rgb=1783880421.407053s, depth=1783880421.433568s). You may want to set approx_sync_max_interval lower than 0.02s to reject spurious bad synchronizations or use approx_sync=false if streams have all the exact same timestamp.
+[rgbd_odometry-3] [INFO] [1783880421.665534004] [rgbd_odometry]: Odom: quality=31, std dev=0.005724m|0.032596rad, update time=0.017730s delay=0.231960s
+[rgbd_odometry-3] [INFO] [1783880421.710829073] [rgbd_odometry]: Odom: quality=37, std dev=0.004850m|0.024736rad, update time=0.015125s delay=0.103799s
+[rgbd_odometry-3] [INFO] [1783880421.918462608] [rgbd_odometry]: Odom: quality=39, std dev=0.003255m|0.028277rad, update time=0.020880s delay=0.111454s
+[rgbd_odometry-3] [INFO] [1783880422.121152751] [rgbd_odometry]: Odom: quality=30, std dev=0.002295m|0.024246rad, update time=0.023283s delay=0.114173s
+[rgbd_odometry-3] [INFO] [1783880422.345943627] [rgbd_odometry]: Odom: quality=29, std dev=0.004524m|0.025108rad, update time=0.017186s delay=0.138998s
+[rtabmap-4] [INFO] [1783880422.426946066] [rtabmap]: rtabmap (4): Rate=1.00s, Limit=0.000s, Conversion=0.0016s, RTAB-Map=0.0788s, Maps update=0.0000s pub=0.0000s delay=0.2200s (local map=1, WM=2)
+[rgbd_odometry-3] [WARN] [1783880422.645612114] [rgbd_odometry]: The time difference between rgb and depth frames is high (diff=0.026657s, rgb=1783880422.406912s, depth=1783880422.433569s). You may want to set approx_sync_max_interval lower than 0.02s to reject spurious bad synchronizations or use approx_sync=false if streams have all the exact same timestamp.
+[rgbd_odometry-3] [INFO] [1783880422.672881948] [rgbd_odometry]: Odom: quality=31, std dev=0.006105m|0.023831rad, update time=0.025390s delay=0.239308s
+[rgbd_odometry-3] [INFO] [1783880422.747952007] [rgbd_odometry]: Odom: quality=29, std dev=0.005035m|0.027617rad, update time=0.019630s delay=0.141065s
+[rgbd_odometry-3] [INFO] [1783880422.968294663] [rgbd_odometry]: Odom: quality=34, std dev=0.006502m|0.023166rad, update time=0.059668s delay=0.161413s
+[rgbd_odometry-3] [INFO] [1783880423.186932913] [rgbd_odometry]: Odom: quality=34, std dev=0.003752m|0.026374rad, update time=0.081553s delay=0.180099s
+[rgbd_odometry-3] [WARN] [1783880423.646982113] [rgbd_odometry]: The time difference between rgb and depth frames is high (diff=0.026796s, rgb=1783880423.406771s, depth=1783880423.433567s). You may want to set approx_sync_max_interval lower than 0.02s to reject spurious bad synchronizations or use approx_sync=false if streams have all the exact same timestamp.
+[rgbd_odometry-3] [INFO] [1783880423.671030692] [rgbd_odometry]: Odom: quality=28, std dev=0.006163m|0.025108rad, update time=0.021454s delay=0.237458s
+[rgbd_odometry-3] [WARN] [1783880424.046387048] [rgbd_odometry]: The time difference between rgb and depth frames is high (diff=0.026854s, rgb=1783880423.806715s, depth=1783880423.833569s). You may want to set approx_sync_max_interval lower than 0.02s to reject spurious bad synchronizations or use approx_sync=false if streams have all the exact same timestamp.
+[rgbd_odometry-3] [INFO] [1783880424.079956522] [rgbd_odometry]: Odom: quality=28, std dev=0.011250m|0.031175rad, update time=0.031452s delay=0.246382s
+[rgbd_odometry-3] [INFO] [1783880424.125670356] [rgbd_odometry]: Odom: quality=34, std dev=0.014043m|0.031640rad, update time=0.030506s delay=0.118978s
+[rtabmap-4] [INFO] [1783880424.432007594] [rtabmap]: rtabmap (5): Rate=1.00s, Limit=0.000s, Conversion=0.0023s, RTAB-Map=0.3023s, Maps update=0.0001s pub=0.0000s delay=0.4253s (local map=1, WM=2)
+[rgbd_odometry-3] [INFO] [1783880424.528043270] [rgbd_odometry]: Odom: quality=28, std dev=0.011682m|0.026135rad, update time=0.028612s delay=0.121410s
+[rgbd_odometry-3] [INFO] [1783880424.718421146] [rgbd_odometry]: Odom: quality=27, std dev=0.006506m|0.024924rad, update time=0.023733s delay=0.111812s
+[rgbd_odometry-3] [INFO] [1783880424.922278664] [rgbd_odometry]: Odom: quality=27, std dev=0.003890m|0.018649rad, update time=0.026802s delay=0.115701s
+[rgbd_odometry-3] [INFO] [1783880425.116983033] [rgbd_odometry]: Odom: quality=34, std dev=0.001763m|0.016214rad, update time=0.022203s delay=0.110430s
+[rgbd_odometry-3] [INFO] [1783880425.321723172] [rgbd_odometry]: Odom: quality=26, std dev=0.003979m|0.019282rad, update time=0.026818s delay=0.115200s
+[rtabmap-4] [INFO] [1783880425.401190239] [rtabmap]: rtabmap (6): Rate=1.00s, Limit=0.000s, Conversion=0.0017s, RTAB-Map=0.0769s, Maps update=0.0001s pub=0.0000s delay=0.1947s (local map=1, WM=2)
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[slam_bridge-5] [INFO] [1783880425.447915745] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [slam_bridge-5]: process has finished cleanly [pid 101965]
+[INFO] [imu_filter_madgwick_node-2]: process has finished cleanly [pid 101837]
+[INFO] [rgbd_odometry-3]: process has finished cleanly [pid 101839]
+[imu_filter_madgwick_node-2] [INFO] [1783880425.447916796] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[rtabmap-4] [INFO] [1783880425.447906423] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[rgbd_odometry-3] [INFO] [1783880425.447941450] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[component_container-1] [INFO] [1783880425.447942445] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[rtabmap-4] [INFO] [1783880425.498960667] [rtabmap]: Parameters are not saved (No configuration file provided...)
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 15:20:19.515) OdometryF2M.cpp:626::computeTransform() Registration failed: "Not enough inliers 0/10 (matches=3) between -1 and 6" (guess=xyz=0.000000,0.000000,0.000000 rpy=-0.001518,0.001329,0.000744)[0m
+[rgbd_odometry-3] [33m[ WARN] (2026-07-12 15:20:19.618) MsgConversion.cpp:2010::getTransform() (getting transform odom -> oak) Lookup would require extrapolation at time 1783880419.407335, but only time 1783880417.207599 is in the buffer, when looking up transform from frame [oak] to frame [odom] (wait_for_transform=0.100000)[0m
+[rtabmap-4] [31m[ERROR] (2026-07-12 15:20:18.789) Rtabmap.cpp:1408::process() RGB-D SLAM mode is enabled, memory is incremental but no odometry is provided. Image 0 is ignored![0m
+[rtabmap-4] [33m[ WARN] (2026-07-12 15:20:19.707) CoreWrapper.cpp:1137::odomUpdate() Odometry is reset (identity pose or high variance (19998.000000) detected). Increment map id![0m
+[rtabmap-4] rtabmap: Saving database/long-term memory... (located at /home/evtol/.ros/rtabmap.db)
+[rtabmap-4] rtabmap: Saving database/long-term memory...done! (located at /home/evtol/.ros/rtabmap.db, 4 MB)
+[INFO] [rtabmap-4]: process has finished cleanly [pid 101841]
+[INFO] [component_container-1]: process has finished cleanly [pid 101835]
