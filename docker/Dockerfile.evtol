@@ -1,0 +1,31 @@
+# Custom Isaac ROS container layer for the eVTOL cuVSLAM pipeline.
+#
+# WHY THIS EXISTS
+# isaac_ros_common's run_dev.sh starts the dev container with
+# `docker run --rm`, so the container is DELETED the moment it stops - and
+# anything apt-installed by hand inside it dies with it. Baking the package
+# into the image instead means it survives container recreation, reboots and
+# `docker rm`.
+#
+# HOW IT IS PICKED UP
+# scripts/.isaac_ros_common-config sets CONFIG_IMAGE_KEY=ros2_humble.evtol,
+# so run_dev.sh asks for image key "aarch64.ros2_humble.evtol".
+# build_image_layers.sh splits that on dots and resolves each token to a
+# Dockerfile.<token> found in CONFIG_DOCKER_SEARCH_DIRS (which points here),
+# stacking them via --build-arg BASE_IMAGE. The "aarch64.ros2_humble" part
+# still resolves to NVIDIA's prebuilt NGC image (this file does not change
+# their hash), so only this layer is built locally, and the result is tagged
+# isaac_ros_dev-aarch64 - the image run_dev.sh runs.
+#
+# Rebuild after editing: src/slam_bridge/scripts/setup_isaac_container.sh
+# (or just stop the container and re-run run_dev.sh).
+
+ARG BASE_IMAGE
+FROM $BASE_IMAGE
+
+# cuVSLAM. Not present in the NGC base image; consumed by
+# src/slam_bridge/launch/cuvslam.launch.py.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        ros-humble-isaac-ros-visual-slam \
+    && rm -rf /var/lib/apt/lists/*

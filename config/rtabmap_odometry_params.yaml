@@ -22,15 +22,19 @@ rgbd_odometry:
 
     # --- COMPUTE SPEED OPTIMIZATIONS (Saves CPU cycles per frame) ---
     Odom/ResetCountdown: '5'
-    Odom/ImageDecimation: '4'      # Extract features at half resolution (big Jetson win)
-    Vis/MinInliers: '10'
+    Odom/ImageDecimation: '2'      # Extract features at half resolution (big Jetson win)
+    Vis/MinInliers: '8'
     Vis/MaxFeatures: '400'
-    Odom/Strategy: '0'             # 0 = Frame-to-Map (Best for localization tracking)
+    Odom/Strategy: '1'             # 0 = Frame-to-Map (Best for localization tracking)
+    # Vis/CorType: '1'                 # 0 = BruteForce, 1 = KNN (Best for speed)
     always_check_imu_tf: false
 
     # Limit visual match search loops:
     Vis/EstimationType: '1'        # 1 = PnP (Fastest transformation calculation method)
     Vis/CorFlowWinSize: '11'       # Smaller search window size for faster execution
+    Vis/FeatureType: '4'
+
+    OdomF2M/MaxSize: '1000'
 
     # Wait for a filtered IMU orientation before starting, so the odometry
     # is initialized aligned with gravity (required for GravitySigma).

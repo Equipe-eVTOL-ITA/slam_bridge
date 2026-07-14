@@ -1,0 +1,52 @@
+/oak:
+  ros__parameters:
+    # OAK-D Pro config for Isaac ROS Visual SLAM (cuVSLAM).
+    #
+    # cuVSLAM wants a hardware-synced RECTIFIED mono stereo pair, not the
+    # RGB+depth pipeline RTAB-Map uses (camera_params.yaml). Rectification
+    # happens on-device in the StereoDepth node, which in depthai_ros_driver
+    # only exists in the DEPTH/RGBD pipelines - pipeline type STEREO would
+    # give raw unrectified left/right only. DEPTH = stereo pair + rectifier,
+    # no RGB stream over USB.
+    camera:
+      i_nn_type: none
+      i_pipeline_type: Depth
+      i_enable_imu: true
+      i_enable_sync: true
+      # IR emitters (OAK-D Pro only). The dot PROJECTOR pattern moves with
+      # the camera, so cuVSLAM would track "features" that are static
+      # relative to the lens - poison for VIO. Keep the projector OFF for
+      # VSLAM. The FLOOD illuminator is uniform (no pattern) and may be
+      # raised (0-1500 mA) for dark indoor flights.
+      i_laser_dot_brightness: 0
+      i_floodlight_brightness: 1000
+
+    stereo:
+      i_fps: 30.0
+      # Publish the on-device rectified left/right pair for cuVSLAM.
+      # v2.12.2 quirks found while bringing this up:
+      #   - individual flags + i_publish_synced_rect_pair together -> driver
+      #     crashes ("double free or corruption") on first subscriber
+      #   - i_publish_synced_rect_pair alone -> every frame published TWICE
+      #     (duplicate stamps), which cuVSLAM chokes on
+      # Individual flags alone publish each frame once; left/right stamps
+      # still match because both come from the same StereoDepth pass.
+      i_left_rect_publish_topic: true
+      i_right_rect_publish_topic: true
+      # The depth image itself is not needed by cuVSLAM; skip the USB/CPU
+      # cost.
+      i_publish_topic: false
+      i_max_q_size: 2
+
+    # 400P (640x400) instead of the OV9282 default 720P: a 720P mono frame
+    # (921 KB) exceeds FastDDS' default ~512 KB shared-memory segment, so
+    # frames to the Isaac ROS container fell back to fragmented loopback UDP
+    # and ~10% were dropped (66-166 ms gaps that visibly degraded cuVSLAM
+    # tracking). 640x400 fits in SHM (256 KB), streams at a clean 30 Hz, and
+    # matches the resolution class NVIDIA uses for VSLAM on the Orin Nano.
+    left:
+      i_fps: 30.0
+      i_resolution: '400P'
+    right:
+      i_fps: 30.0
+      i_resolution: '400P'
