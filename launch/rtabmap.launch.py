@@ -76,7 +76,7 @@ def generate_launch_description():
             ('odom', '/odom_local'),
             ('imu', '/imu/data'), 
         ],
-        arguments=['-d'] 
+        # arguments=['-d'] 
     )
 
     # NOTA: o TF do IMU (oak_imu_frame) ja e publicado pelo driver via URDF

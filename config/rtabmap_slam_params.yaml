@@ -14,8 +14,8 @@ rtabmap:
 
     # --- Mapping mode (set IncrementalMemory to "false" + InitWMWithAllNodes
     # to "true" for pure localization on a previously saved map) ---
-    Mem/IncrementalMemory: true
-    Mem/InitWMWithAllNodes: false
+    Mem/IncrementalMemory: 'false'
+    Mem/InitWMWithAllNodes: 'true'
 
     Rtabmap/DetectionRate: '1.0'   # Loop-closure detection at 2 Hz is plenty
     Grid/FromDepth: false
@@ -25,5 +25,5 @@ rtabmap:
 
     wait_for_transform: 0.2
 
-    RGBD/OptimizeFromGraphEnd: false
+    RGBD/OptimizeFromGraphEnd: 'false'
     Optimizer/GravitySigma: "0.3"

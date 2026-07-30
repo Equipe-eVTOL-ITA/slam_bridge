@@ -42,7 +42,7 @@ def generate_launch_description():
             # Pure visual odometry for the PX4 EKF2 feed - no map building,
             # no loop closure (a loop-closure pose jump mid-flight would be
             # worse for EKF2 than smooth VO drift).
-            'enable_localization_n_mapping': False,
+            'enable_localization_n_mapping': True,
 
             # IMU (BNO086) - UNCALIBRATED datasheet ballparks, see header.
             'enable_imu_fusion': enable_imu_fusion,
@@ -88,7 +88,7 @@ def generate_launch_description():
 
     return LaunchDescription([
         DeclareLaunchArgument(
-            'enable_imu_fusion', default_value='true',
+            'enable_imu_fusion', default_value='false',
             description='Fuse the (uncalibrated) OAK-D IMU into cuVSLAM'),
         container,
     ])
