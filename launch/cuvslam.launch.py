@@ -1,8 +1,8 @@
 # Isaac ROS Visual SLAM (cuVSLAM) fed by the OAK-D Pro rectified stereo
 # pair. Runs INSIDE the Isaac ROS container (the only place the
 # isaac_ros_visual_slam package exists), while the camera driver
-# (camera_jetson.launch.py, slam_backend:=vslam) and slam_bridge run on the
-# Jetson host - both sides share DDS because the container uses
+# (camera_jetson.launch.py) and slam_bridge run on the Jetson host - both
+# sides share DDS because the container uses
 # --network host.
 #
 # The container mounts this workspace at /workspaces/isaac_ros-dev, and this

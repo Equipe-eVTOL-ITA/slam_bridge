@@ -55,13 +55,16 @@ running and republishes it to PX4 as `px4_msgs/VehicleOdometry`.
 
 | File | Runs where | Pipeline |
 |---|---|---|
-| `launch/camera_jetson.launch.py` | Jetson | OAK-D Pro driver only. `slam_backend:=vslam` (default, rectified stereo + IMU for cuVSLAM) or `slam_backend:=rtabmap` (RGB + depth). |
+| `launch/camera_jetson.launch.py` | Jetson | OAK-D Pro driver only, rectified stereo + IMU for cuVSLAM. |
 | `launch/rtabmap.launch.py` | Jetson (all-in-one) | Camera + IMU filter + RTAB-Map odometry/SLAM + `slam_bridge`, all on one machine. |
-| `launch/rtabmap_pc.launch.py` | PC | IMU filter + RTAB-Map odometry/SLAM + `slam_bridge`; expects the camera already running on the Jetson via `camera_jetson.launch.py`. Used because the uXRCE-DDS agent currently runs on the PC in the debug setup. |
-| `launch/vslam.launch.py` | Jetson | `camera_jetson.launch.py slam_backend:=vslam` + `slam_bridge` pointed at cuVSLAM's odometry topic. cuVSLAM itself must be started separately inside the Isaac ROS container. |
+| `launch/vslam.launch.py` | Jetson | `camera_jetson.launch.py` + `slam_bridge` pointed at cuVSLAM's odometry topic. cuVSLAM itself must be started separately inside the Isaac ROS container. |
 | `launch/cuvslam.launch.py` | Inside Isaac ROS container | The `isaac_ros_visual_slam` composable node. Not built by `colcon` — launch by absolute path (see file header). `enable_imu_fusion:=true` to opt into the (uncalibrated) BNO086 IMU. |
 
-Splitting nodes across the Jetson/PC/container requires: matching
+Splitting the camera (Jetson) from the SLAM backend (a separate PC over the
+network) was tried for RTAB-Map and dropped — raw RGB+depth is too heavy for
+the link. RTAB-Map now always runs all-in-one via `rtabmap.launch.py`. The
+Jetson/container split for cuVSLAM is different (shared DDS via
+`--network host`, not a network hop) and still requires: matching
 `ROS_DOMAIN_ID`, the same RMW implementation everywhere, and synced clocks
 (chrony/NTP) — see comments in `camera_jetson.launch.py`.
 

@@ -1,25 +1,21 @@
-# Runs ONLY the OAK-D Pro capture on the Jetson.
+# Runs the OAK-D Pro capture on the Jetson for the cuVSLAM pipeline:
+# rectified stereo pair + IMU, IR dot projector off (camera_params_vslam.yaml).
+# cuVSLAM itself runs inside the Isaac ROS container - see cuvslam.launch.py.
 #
-# The camera config is selected by the slam_backend argument:
-#   slam_backend:=vslam   (default) -> camera_params_vslam.yaml
-#       rectified stereo pair + IMU for Isaac ROS Visual SLAM (cuVSLAM).
-#       cuVSLAM itself runs inside the Isaac ROS container - see
-#       cuvslam.launch.py.
-#   slam_backend:=rtabmap           -> camera_params.yaml
-#       RGB + aligned depth for the RTAB-Map pipeline (rtabmap_pc.launch.py
-#       on the PC), sharing the same DDS network.
+# (RTAB-Map used to share this launch file via a slam_backend arg, camera on
+# the Jetson and processing on a separate PC over the network - that split
+# was a failed experiment, too much bandwidth for the raw RGB+depth stream.
+# RTAB-Map now runs all-in-one via rtabmap.launch.py instead.)
 #
 # Requirements when splitting nodes across machines/containers:
 #   - same ROS_DOMAIN_ID exported
 #   - same RMW implementation (don't mix FastRTPS and CycloneDDS)
 #   - clocks synced (chrony/NTP) - stamps originate on the Jetson but are
-#     consumed against the PC clock (TF, slam_bridge PX4 timesync)
-#   - wired gigabit link (raw 720p rgb+depth is too heavy for WiFi)
+#     consumed against the container clock (TF, slam_bridge PX4 timesync)
 
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, PythonExpression
+from launch.actions import IncludeLaunchDescription
 from ament_index_python.packages import get_package_share_directory
 import os
 
@@ -27,16 +23,7 @@ import os
 def generate_launch_description():
 
     pkg_dir = get_package_share_directory('slam_bridge')
-
-    slam_backend = LaunchConfiguration('slam_backend')
-
-    params_file = PathJoinSubstitution([
-        pkg_dir, 'config',
-        PythonExpression([
-            "'camera_params_vslam.yaml' if '", slam_backend,
-            "' == 'vslam' else 'camera_params.yaml'"
-        ])
-    ])
+    params_file = os.path.join(pkg_dir, 'config', 'camera_params_vslam.yaml')
 
     # Camera driver. camera.launch.py also starts robot_state_publisher with
     # the OAK URDF, so the whole oak TF tree (base 'oak', optical frames,
@@ -47,18 +34,13 @@ def generate_launch_description():
                          'launch', 'camera.launch.py')
         ),
         # rectify_rgb spawns a host-side image_proc rectify node for the RGB
-        # stream; pointless for the vslam (Depth pipeline, no RGB) config.
+        # stream; pointless here (Depth pipeline, no RGB).
         launch_arguments={
             'params_file': params_file,
-            'rectify_rgb': PythonExpression(
-                ["'false' if '", slam_backend, "' == 'vslam' else 'true'"]),
+            'rectify_rgb': 'false',
         }.items()
     )
 
     return LaunchDescription([
-        DeclareLaunchArgument(
-            'slam_backend', default_value='vslam',
-            choices=['vslam', 'rtabmap'],
-            description='Which SLAM backend the camera config should feed'),
         camera_launch,
     ])

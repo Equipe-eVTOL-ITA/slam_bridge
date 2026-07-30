@@ -28,8 +28,7 @@ def generate_launch_description():
     camera_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(pkg_dir, 'launch', 'camera_jetson.launch.py')
-        ),
-        launch_arguments={'slam_backend': 'vslam'}.items()
+        )
     )
 
     # SLAM Bridge node - converts cuVSLAM odometry to PX4 format (delayed
