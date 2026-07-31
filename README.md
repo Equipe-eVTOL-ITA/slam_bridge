@@ -57,8 +57,23 @@ running and republishes it to PX4 as `px4_msgs/VehicleOdometry`.
 |---|---|---|
 | `launch/camera_jetson.launch.py` | Jetson | OAK-D Pro driver only, rectified stereo + IMU for cuVSLAM. |
 | `launch/rtabmap.launch.py` | Jetson (all-in-one) | Camera + IMU filter + RTAB-Map odometry/SLAM + `slam_bridge`, all on one machine. |
-| `launch/vslam.launch.py` | Jetson | `camera_jetson.launch.py` + `slam_bridge` pointed at cuVSLAM's odometry topic. cuVSLAM itself must be started separately inside the Isaac ROS container. |
+| `launch/vslam.launch.py` | Jetson | `camera_jetson.launch.py` + `rect_camera_info_fixer` + `slam_bridge` pointed at cuVSLAM's odometry topic. cuVSLAM itself must be started separately inside the Isaac ROS container. |
 | `launch/cuvslam.launch.py` | Inside Isaac ROS container | The `isaac_ros_visual_slam` composable node. Not built by `colcon` — launch by absolute path (see file header). `enable_imu_fusion:=true` to opt into the (uncalibrated) BNO086 IMU. |
+
+### `rect_camera_info_fixer` (cuVSLAM only)
+
+`depthai_ros_driver` publishes each sensor's **raw, unrectified** intrinsics on
+`/oak/{left,right}/camera_info` even though `image_rect` is rectified on-device
+into one common model. cuVSLAM takes its stereo model straight from those
+messages, so the 13.4 px `cx` disagreement between them acted as a constant
+disparity bias and crushed every triangulated depth toward 2.2 m — trajectories
+came out ~2.4x too short and geometrically warped.
+
+This node republishes both on `/vslam/{left,right}/camera_info` with the one
+model the rectified images actually live in (the right sensor's), `d` zeroed and
+`r` identity. `cuvslam.launch.py` subscribes to those. Full diagnosis, the
+hardware measurements behind it, and the residual 0.3% baseline error are in
+[`ISAAC_ROS_VSLAM_OAKD_PLAN.md`](../../ISAAC_ROS_VSLAM_OAKD_PLAN.md) §10.
 
 Splitting the camera (Jetson) from the SLAM backend (a separate PC over the
 network) was tried for RTAB-Map and dropped — raw RGB+depth is too heavy for

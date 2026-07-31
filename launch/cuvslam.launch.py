@@ -69,10 +69,15 @@ def generate_launch_description():
             'enable_observations_view': False,
         }],
         remappings=[
+            # camera_info comes from rect_camera_info_fixer (host side), NOT
+            # straight from the driver: /oak/{left,right}/camera_info carry
+            # each sensor's raw unrectified intrinsics even on the rectified
+            # topics, and cuVSLAM reads K from them. See
+            # src/rect_camera_info_fixer.cpp for the measurements.
             ('visual_slam/image_0', '/oak/left/image_rect'),
-            ('visual_slam/camera_info_0', '/oak/left/camera_info'),
+            ('visual_slam/camera_info_0', '/vslam/left/camera_info'),
             ('visual_slam/image_1', '/oak/right/image_rect'),
-            ('visual_slam/camera_info_1', '/oak/right/camera_info'),
+            ('visual_slam/camera_info_1', '/vslam/right/camera_info'),
             ('visual_slam/imu', '/oak/imu/data'),
         ],
     )
@@ -88,7 +93,7 @@ def generate_launch_description():
 
     return LaunchDescription([
         DeclareLaunchArgument(
-            'enable_imu_fusion', default_value='false',
+            'enable_imu_fusion', default_value='true',
             description='Fuse the (uncalibrated) OAK-D IMU into cuVSLAM'),
         container,
     ])

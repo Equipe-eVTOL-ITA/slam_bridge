@@ -31,6 +31,19 @@ def generate_launch_description():
         )
     )
 
+    camera_info_fixer = Node(
+        package='slam_bridge',
+        executable='rect_camera_info_fixer',
+        name='rect_camera_info_fixer',
+        output='screen',
+        parameters=[{
+            'left_input_topic': '/oak/left/camera_info',
+            'right_input_topic': '/oak/right/camera_info',
+            'left_output_topic': '/vslam/left/camera_info',
+            'right_output_topic': '/vslam/right/camera_info',
+        }]
+    )
+
     # SLAM Bridge node - converts cuVSLAM odometry to PX4 format (delayed
     # start so the camera/TF tree is up first)
     slam_bridge_node = TimerAction(
@@ -51,5 +64,6 @@ def generate_launch_description():
 
     return LaunchDescription([
         camera_launch,
+        camera_info_fixer,
         slam_bridge_node,
     ])
