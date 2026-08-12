@@ -69,7 +69,7 @@ public:
     const std::string right_out = get_parameter("right_output_topic").as_string();
 
     // cuVSLAM subscribes to camera_info with SENSOR_DATA QoS.
-    auto qos = rclcpp::SensorDataQoS();
+    auto qos = rclcpp::SensorDataQoS(); //possible qos missmatch?
 
     _left_pub = create_publisher<sensor_msgs::msg::CameraInfo>(left_out, qos);
     _right_pub = create_publisher<sensor_msgs::msg::CameraInfo>(right_out, qos);
@@ -145,15 +145,15 @@ private:
       return;
     }
     _logged = true;
-    RCLCPP_INFO(get_logger(),
-                "driver published left K (fx=%.4f cx=%.4f cy=%.4f), overriding with "
-                "the shared rectified model from right (fx=%.4f cx=%.4f cy=%.4f)",
-                in->k[0], in->k[2], in->k[5],
-                _reference.k[0], _reference.k[2], _reference.k[5]);
-    RCLCPP_INFO(get_logger(),
-                "cx correction = %.2f px (that was the disparity bias); "
-                "device baseline %.5f m vs URDF/TF nominal 0.075 m",
-                _reference.k[2] - in->k[2], _baseline);
+    // RCLCPP_INFO(get_logger(),
+    //             "driver published left K (fx=%.4f cx=%.4f cy=%.4f), overriding with "
+    //             "the shared rectified model from right (fx=%.4f cx=%.4f cy=%.4f)",
+    //             in->k[0], in->k[2], in->k[5],
+    //             _reference.k[0], _reference.k[2], _reference.k[5]);
+    // RCLCPP_INFO(get_logger(),
+    //             "cx correction = %.2f px (that was the disparity bias); "
+    //             "device baseline %.5f m vs URDF/TF nominal 0.075 m",
+    //             _reference.k[2] - in->k[2], _baseline);
     if (std::fabs(_reference.k[2] - in->k[2]) < 0.01) {
       RCLCPP_WARN(get_logger(),
                   "left and right K already agree - the driver may have been fixed "
