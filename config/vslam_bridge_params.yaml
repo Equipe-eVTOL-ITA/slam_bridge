@@ -1,0 +1,33 @@
+# Host-side nodes for the cuVSLAM pipeline: slam_bridge + rect_camera_info_fixer.
+# Loaded by launch/vslam.launch.py.
+
+/slam_bridge:
+  ros__parameters:
+    slam_odometry_topic: '/visual_slam/tracking/odometry'
+    px4_odometry_output_topic: '/fmu/in/vehicle_visual_odometry'
+    timesync_topic: '/fmu/out/timesync_status'
+
+    # Minimum stddev (m / m·s⁻¹ / rad) forced onto every published covariance.
+    # cuVSLAM's nav_msgs/Odometry covariance is all zeros, so today this floor
+    # is the ONLY uncertainty EKF2 ever sees.
+    #
+    # Real per-frame covariance does exist, on
+    # /visual_slam/tracking/vo_pose_covariance — measured median position
+    # variance 0.007–0.026 m² (σ = 8–16 cm) with spikes to 2.8 m² (σ = 1.7 m).
+    # So this 0.1 floor currently tells PX4 "σ = 10 cm" even when cuVSLAM
+    # itself thinks it is 1.7 m out. Wiring that topic in is Phase 3.9 of
+    # SLAM_FIXING_PLAN.md.
+    variance_floor: 0.1
+
+    # Camera position relative to the FLIGHT CONTROLLER, body FLU metres
+    # (x forward, y left, z up). Measured: 15 cm forward.
+    # Keep EKF2_EV_POS_X/Y/Z at 0 — PX4 applies its own lever arm from those
+    # params and setting both double-counts.
+    camera_offset_body: [0.15, 0.0, 0.0]
+
+/rect_camera_info_fixer:
+  ros__parameters:
+    left_input_topic: '/oak/left/camera_info'
+    right_input_topic: '/oak/right/camera_info'
+    left_output_topic: '/vslam/left/camera_info'
+    right_output_topic: '/vslam/right/camera_info'

@@ -24,6 +24,7 @@ import os
 def generate_launch_description():
 
     pkg_dir = get_package_share_directory('slam_bridge')
+    params_file = os.path.join(pkg_dir, 'config', 'vslam_bridge_params.yaml')
 
     camera_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -36,12 +37,7 @@ def generate_launch_description():
         executable='rect_camera_info_fixer',
         name='rect_camera_info_fixer',
         output='screen',
-        parameters=[{
-            'left_input_topic': '/oak/left/camera_info',
-            'right_input_topic': '/oak/right/camera_info',
-            'left_output_topic': '/vslam/left/camera_info',
-            'right_output_topic': '/vslam/right/camera_info',
-        }]
+        parameters=[params_file]
     )
 
     # SLAM Bridge node - converts cuVSLAM odometry to PX4 format (delayed
@@ -53,12 +49,7 @@ def generate_launch_description():
             executable='slam_bridge',
             name='slam_bridge',
             output='screen',
-            parameters=[{
-                'slam_odometry_topic': '/visual_slam/tracking/odometry',
-                'px4_odometry_output_topic': '/fmu/in/vehicle_visual_odometry',
-                'timesync_topic': '/fmu/out/timesync_status',
-                'variance_floor': 0.1,
-            }]
+            parameters=[params_file]
         )]
     )
 

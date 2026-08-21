@@ -15,59 +15,50 @@
 # node fails to load, run src/slam_bridge/scripts/setup_isaac_container.sh
 # --build (the image layer is probably not wired up on this machine yet).
 #
-# IMU fusion is OFF by default: the BNO086 noise densities below are
-# datasheet ballparks, NOT Kalibr-calibrated values. Pass
-# enable_imu_fusion:=true to experiment anyway.
+# Parameters live in ../config/cuvslam_params.yaml. Resolved relative to this
+# file's own path, NOT via get_package_share_directory() - this package is not
+# built inside the container.
+#
+# STARTUP ORDER MATTERS. The OAK TF tree (base 'oak', optical frames) is
+# published by robot_state_publisher on the HOST, as a single latched
+# /tf_static message. If this node starts before the host side, cuVSLAM's
+# extrinsics lookups fire before DDS discovery has delivered that message and
+# you get a burst of:
+#
+#     Warning: Invalid frame ID "oak" passed to canTransform argument
+#     target_frame - frame does not exist
+#
+# Start vslam.launch.py on the host FIRST, confirm the frame is really there
+#     ros2 topic echo /tf_static --once
+#     ros2 run tf2_ros tf2_echo oak oak_left_camera_optical_frame
+# and only then launch this. See scripts/kill_slam.sh before relaunching.
 
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import ComposableNodeContainer
 from launch_ros.descriptions import ComposableNode
+import os
 
 
 def generate_launch_description():
 
     enable_imu_fusion = LaunchConfiguration('enable_imu_fusion')
 
+    # This package is not built inside the Isaac ROS container, so the config
+    # is found relative to this launch file rather than via ament.
+    params_file = os.path.join(
+        os.path.dirname(os.path.realpath(__file__)), '..', 'config', 'cuvslam_params.yaml')
+
     visual_slam_node = ComposableNode(
         name='visual_slam_node',
         package='isaac_ros_visual_slam',
         plugin='nvidia::isaac_ros::visual_slam::VisualSlamNode',
-        parameters=[{
-            'enable_image_denoising': False,
-            # left_rect/right_rect are rectified on-device by StereoDepth
-            'rectified_images': True,
-
-            # Pure visual odometry for the PX4 EKF2 feed - no map building,
-            # no loop closure (a loop-closure pose jump mid-flight would be
-            # worse for EKF2 than smooth VO drift).
-            'enable_localization_n_mapping': True,
-
-            # IMU (BNO086) - UNCALIBRATED datasheet ballparks, see header.
-            'enable_imu_fusion': enable_imu_fusion,
-            'gyro_noise_density': 0.000244,
-            'gyro_random_walk': 0.000019393,
-            'accel_noise_density': 0.00226,
-            'accel_random_walk': 0.003,
-            'calibration_frequency': 200.0,
-
-            # 30 fps pair -> nominal 33.3 ms period
-            'image_jitter_threshold_ms': 35.0,
-
-            # Frames from the OAK URDF published by the host-side driver
-            'base_frame': 'oak',
-            'imu_frame': 'oak_imu_frame',
-            'camera_optical_frames': [
-                'oak_left_camera_optical_frame',
-                'oak_right_camera_optical_frame',
-            ],
-
-            # Headless on the Jetson; flip on for RViz debugging sessions
-            'enable_slam_visualization': False,
-            'enable_landmarks_view': False,
-            'enable_observations_view': False,
-        }],
+        parameters=[
+            params_file,
+            # launch-arg override; everything else comes from the YAML
+            {'enable_imu_fusion': enable_imu_fusion},
+        ],
         remappings=[
             # camera_info comes from rect_camera_info_fixer (host side), NOT
             # straight from the driver: /oak/{left,right}/camera_info carry

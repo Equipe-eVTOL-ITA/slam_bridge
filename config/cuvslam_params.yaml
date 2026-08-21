@@ -1,0 +1,47 @@
+# cuVSLAM (isaac_ros_visual_slam) parameters — container side.
+#
+# Loaded by launch/cuvslam.launch.py, which runs INSIDE the Isaac ROS
+# container. The container does not build this package, so the launch file
+# resolves this path relative to its own __file__, not via
+# get_package_share_directory().
+#
+# The node name key must match ComposableNode(name=...) in cuvslam.launch.py.
+
+/visual_slam_node:
+  ros__parameters:
+
+    enable_image_denoising: false
+    # left_rect/right_rect are rectified on-device by StereoDepth
+    rectified_images: true
+
+    # Mapping + loop closure. ON deliberately for testing.
+    # Consequence to keep in mind: relocalisation produces pose JUMPS, and
+    # cuVSLAM does not flag them in the nav_msgs/Odometry covariance (it
+    # publishes zeros there). slam_bridge must detect them itself and bump
+    # reset_counter, or EKF2 sees a jump as real motion.
+    enable_localization_n_mapping: true
+
+    # OAK-D Pro BNO086. NOTE: these are datasheet ballparks, NOT Kalibr
+    # values. Enabled for testing; treat the numbers as provisional.
+    gyro_noise_density: 0.000244
+    gyro_random_walk: 0.000019393
+    accel_noise_density: 0.00226
+    accel_random_walk: 0.003
+    calibration_frequency: 200.0
+
+    # 30 fps pair -> nominal 33.3 ms period
+    image_jitter_threshold_ms: 35.0
+
+    # Frames from the OAK URDF, published by the HOST-side driver's
+    # robot_state_publisher. See the launch file header re: the
+    # "Invalid frame ID 'oak'" startup warnings.
+    base_frame: 'oak'
+    imu_frame: 'oak_imu_frame'
+    camera_optical_frames:
+      - 'oak_left_camera_optical_frame'
+      - 'oak_right_camera_optical_frame'
+
+    # Headless on the Jetson; flip on for RViz debugging sessions
+    enable_slam_visualization: false
+    enable_landmarks_view: false
+    enable_observations_view: false
