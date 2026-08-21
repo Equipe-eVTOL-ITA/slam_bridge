@@ -7,16 +7,21 @@
     px4_odometry_output_topic: '/fmu/in/vehicle_visual_odometry'
     timesync_topic: '/fmu/out/timesync_status'
 
-    # Minimum stddev (m / m·s⁻¹ / rad) forced onto every published covariance.
-    # cuVSLAM's nav_msgs/Odometry covariance is all zeros, so today this floor
-    # is the ONLY uncertainty EKF2 ever sees.
-    #
-    # Real per-frame covariance does exist, on
-    # /visual_slam/tracking/vo_pose_covariance — measured median position
-    # variance 0.007–0.026 m² (σ = 8–16 cm) with spikes to 2.8 m² (σ = 1.7 m).
-    # So this 0.1 floor currently tells PX4 "σ = 10 cm" even when cuVSLAM
-    # itself thinks it is 1.7 m out. Wiring that topic in is Phase 3.9 of
-    # SLAM_FIXING_PLAN.md.
+    # cuVSLAM's real per-frame covariance. Its nav_msgs/Odometry covariance is
+    # all zeros; the actual estimate goes out on this separate topic, matched
+    # to the odometry by header stamp (measured stamp delta: 0 us).
+    # Set to '' to disable and fall back to the odometry message covariance —
+    # which is what the RTAB-Map backend wants, since rtabmap fills that in.
+    covariance_topic: '/visual_slam/tracking/vo_pose_covariance'
+    # How far off an odometry stamp a covariance sample may be before it is
+    # considered stale and the fallback is used. 3 frames at 30 Hz.
+    covariance_max_age_ms: 100
+
+    # Minimum stddev (m / m·s⁻¹ / rad) forced onto every published covariance,
+    # applied AFTER the real covariance above — it is a lower bound, not a
+    # replacement. Measured real position stddev is p50 [0.078, 0.113, 0.161] m,
+    # so this 0.1 floor still binds on x but lets y/z report honestly, and lets
+    # the tracking-wobble spikes (up to σ = 1.67 m) through to EKF2's gate.
     variance_floor: 0.1
 
     # Camera position relative to the FLIGHT CONTROLLER, body FLU metres

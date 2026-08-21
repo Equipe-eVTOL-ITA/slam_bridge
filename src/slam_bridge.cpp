@@ -2,10 +2,13 @@
 #include <nav_msgs/msg/odometry.hpp>
 #include <px4_msgs/msg/vehicle_odometry.hpp>
 #include <px4_msgs/msg/timesync_status.hpp>
+#include <geometry_msgs/msg/pose_with_covariance_stamped.hpp>
 #include <eigen3/Eigen/Dense>
 #include <cmath>
 #include <algorithm>
 #include <vector>
+#include <deque>
+#include <array>
 
 using namespace std::chrono_literals;
 
@@ -22,12 +25,20 @@ public:
     // Camera position relative to the flight controller, in BODY FLU metres
     // (x forward, y left, z up). Measured: camera sits 15 cm forward of the FC.
     declare_parameter<std::vector<double>>("camera_offset_body", {0.15, 0.0, 0.0});
+    // cuVSLAM leaves nav_msgs/Odometry.pose.covariance all zeros and publishes
+    // the real per-frame covariance on this separate topic instead. Empty
+    // string disables it (RTAB-Map puts its covariance in the odometry msg).
+    declare_parameter<std::string>("covariance_topic", "/visual_slam/tracking/vo_pose_covariance");
+    declare_parameter<int>("covariance_max_age_ms", 100);
 
     // Get parameters
     std::string slam_topic = get_parameter("slam_odometry_topic").as_string();
     std::string px4_topic = get_parameter("px4_odometry_output_topic").as_string();
     std::string timesync_topic = get_parameter("timesync_topic").as_string();
     _variance_floor = get_parameter("variance_floor").as_double();
+
+    _cov_topic = get_parameter("covariance_topic").as_string();
+    _cov_max_age_us = get_parameter("covariance_max_age_ms").as_int() * 1000;
 
     const auto off = get_parameter("camera_offset_body").as_double_array();
     if (off.size() != 3) {
@@ -58,6 +69,16 @@ public:
             timesync_topic, px4_qos,
             std::bind(&SlamBridge::timesync_cb, this, std::placeholders::_1));
     
+    if (!_cov_topic.empty()) {
+      _cov_sub = create_subscription<geometry_msgs::msg::PoseWithCovarianceStamped>(
+              _cov_topic, 20,
+              std::bind(&SlamBridge::covariance_cb, this, std::placeholders::_1));
+      RCLCPP_INFO(get_logger(), "external covariance: %s (max age %ld ms)",
+                  _cov_topic.c_str(), _cov_max_age_us / 1000);
+    } else {
+      RCLCPP_INFO(get_logger(), "external covariance disabled - using odometry msg covariance");
+    }
+
     RCLCPP_INFO(get_logger(), "SLAM Bridge initialized - converting ENU -> NED with Covariance & Velocity");
   }
 
@@ -68,6 +89,17 @@ private:
   uint8_t _reset_counter = 0;
   double _variance_floor = 0.1;
   Eigen::Vector3f _r_cam_body{0.0f, 0.0f, 0.0f};  // camera offset from FC, body FLU
+
+  // Recent external covariances, keyed by header stamp. cuVSLAM stamps the
+  // covariance identically to the matching odometry sample (verified: max
+  // stamp delta 0 us over a 180 s run) but the two callbacks can fire in
+  // either order, so keep a short history rather than just "the latest".
+  std::string _cov_topic;
+  int64_t _cov_max_age_us = 100000;
+  struct CovSample { int64_t stamp_us; std::array<double, 6> var; };
+  std::deque<CovSample> _cov_hist;
+  static constexpr size_t COV_HIST_MAX = 90;  // 3 s at 30 Hz
+  bool _cov_warned_stale = false;
 
   void timesync_cb(const px4_msgs::msg::TimesyncStatus::SharedPtr msg)
   {
@@ -80,6 +112,49 @@ private:
   double apply_variance_floor(double variance)
   {
     return std::max(variance, _variance_floor * _variance_floor); // Apply floor squared for variance
+  }
+
+  void covariance_cb(const geometry_msgs::msg::PoseWithCovarianceStamped::SharedPtr msg)
+  {
+    CovSample s;
+    s.stamp_us = (int64_t)msg->header.stamp.sec * 1000000 + msg->header.stamp.nanosec / 1000;
+    // Diagonal only: VehicleOdometry has no off-diagonal fields. (Measured
+    // max |off-diagonal| 0.045 on real data - discarding it is a small
+    // optimism, which the variance floor absorbs.)
+    for (int i = 0; i < 6; ++i) {
+      const double v = msg->pose.covariance[i * 6 + i];
+      // A negative or non-finite variance would poison EKF2; drop the sample.
+      if (!std::isfinite(v) || v < 0.0) {
+        RCLCPP_WARN_THROTTLE(get_logger(), *get_clock(), 5000,
+          "discarding covariance sample with bad diagonal [%d] = %f", i, v);
+        return;
+      }
+      s.var[i] = v;
+    }
+    _cov_hist.push_back(s);
+    while (_cov_hist.size() > COV_HIST_MAX) {
+      _cov_hist.pop_front();
+    }
+  }
+
+  // Find the covariance whose stamp best matches this odometry sample.
+  // Returns false if nothing is close enough, so the caller can fall back.
+  bool lookup_covariance(int64_t stamp_us, std::array<double, 6> & out)
+  {
+    int64_t best_dt = _cov_max_age_us + 1;
+    const CovSample * best = nullptr;
+    for (const auto & c : _cov_hist) {
+      const int64_t dt = std::llabs(c.stamp_us - stamp_us);
+      if (dt < best_dt) {
+        best_dt = dt;
+        best = &c;
+      }
+    }
+    if (!best || best_dt > _cov_max_age_us) {
+      return false;
+    }
+    out = best->var;
+    return true;
   }
 
   void odom_cb(const nav_msgs::msg::Odometry::SharedPtr msg)
@@ -207,25 +282,75 @@ private:
 
     /* ==============================================
        COVARIANCE / UNCERTAINTY
+       ==============================================
+       Source of truth, in order of preference:
+         1. the external covariance topic (cuVSLAM's real per-frame estimate)
+         2. the odometry message's own covariance (RTAB-Map fills this in)
+       cuVSLAM leaves nav_msgs/Odometry.pose.covariance ALL ZEROS, so on that
+       backend option 2 collapses to the variance floor and EKF2 is told a
+       flat "sigma = variance_floor" no matter how well tracking is going.
+       Measured on a 180 s handheld run, the real values span:
+         position stddev  p50 [0.078, 0.113, 0.161] m  ->  p99 [0.219, 0.244, 0.280] m
+         worst-case variance 2.80 m^2 (sigma = 1.67 m)
+       i.e. the flat 0.1 floor was simultaneously too pessimistic in x and too
+       OPTIMISTIC in z and during every tracking wobble. Passing the real
+       numbers is what lets EKF2's innovation gate do its job.
+
+       ROS covariance is a 6x6 row-major [x y z rx ry rz]; index (i,i) = i*6+i,
+       so the diagonal is 0, 7, 14, 21, 28, 35.
        ============================================== */
-    // ROS covariance is a 36-element array (6x6 matrix).
-    // The diagonals [0], [7], [14] represent X, Y, Z variances.
+    std::array<double, 6> cov = {
+      msg->pose.covariance[0],  msg->pose.covariance[7],  msg->pose.covariance[14],
+      msg->pose.covariance[21], msg->pose.covariance[28], msg->pose.covariance[35]
+    };
 
-    // Position Variances (world ENU X/Y/Z -> NED N/E/D: swap X/Y)
-    px4_odom.position_variance[0] = apply_variance_floor(msg->pose.covariance[7]);  // North
-    px4_odom.position_variance[1] = apply_variance_floor(msg->pose.covariance[0]);  // East
-    px4_odom.position_variance[2] = apply_variance_floor(msg->pose.covariance[14]); // Down
+    if (!_cov_topic.empty()) {
+      std::array<double, 6> ext;
+      if (lookup_covariance((int64_t)ros_time_us, ext)) {
+        cov = ext;
+        _cov_warned_stale = false;
+      } else if (!_cov_warned_stale) {
+        _cov_warned_stale = true;
+        RCLCPP_WARN(get_logger(),
+          "no covariance within %ld ms of the odometry stamp on %s - falling back "
+          "to the odometry message covariance (all zeros on cuVSLAM, so the "
+          "variance floor is all EKF2 will see)",
+          _cov_max_age_us / 1000, _cov_topic.c_str());
+      }
+    }
 
-    // Velocity Variances (body frame: axis flips don't change variance)
+    // Position: world ENU X/Y/Z -> N/E/D, so swap X and Y.
+    px4_odom.position_variance[0] = apply_variance_floor(cov[1]);  // North <- ENU Y
+    px4_odom.position_variance[1] = apply_variance_floor(cov[0]);  // East  <- ENU X
+    px4_odom.position_variance[2] = apply_variance_floor(cov[2]);  // Down
+
+    // Orientation: the pose covariance is expressed in the WORLD frame, so
+    // cov[3..5] are rotations about ENU X (East), Y (North), Z (Up). PX4 wants
+    // [roll, pitch, yaw] about NED/FRD axes - roll is about North and pitch
+    // about East, so these swap exactly like the position block above.
+    // (The previous mapping passed them straight through, which had rx and ry
+    // crossed.) Sign flips do not change a variance, so only the swap matters.
+    px4_odom.orientation_variance[0] = apply_variance_floor(cov[4]);  // roll  <- about ENU Y
+    px4_odom.orientation_variance[1] = apply_variance_floor(cov[3]);  // pitch <- about ENU X
+    px4_odom.orientation_variance[2] = apply_variance_floor(cov[5]);  // yaw
+
+    // Velocity: vo_pose_covariance is POSE-only (6x6, no velocity block), so
+    // this still comes from the odometry twist - which cuVSLAM also leaves at
+    // zero, i.e. the floor. Harmless while EKF2_EV_CTRL bit 2 is clear and
+    // velocity is not fused; revisit if it is ever enabled.
+    // Body-frame axis flips do not change a variance, so map directly.
     px4_odom.velocity_variance[0] = apply_variance_floor(msg->twist.covariance[0]);
     px4_odom.velocity_variance[1] = apply_variance_floor(msg->twist.covariance[7]);
     px4_odom.velocity_variance[2] = apply_variance_floor(msg->twist.covariance[14]);
 
-    // Orientation Variances (body-axis roll/pitch/yaw: sign flips
-    // between FLU and FRD don't change variance, so map directly)
-    px4_odom.orientation_variance[0] = apply_variance_floor(msg->pose.covariance[21]);
-    px4_odom.orientation_variance[1] = apply_variance_floor(msg->pose.covariance[28]);
-    px4_odom.orientation_variance[2] = apply_variance_floor(msg->pose.covariance[35]);
+    // Loud when the estimate degrades badly - this is the signal that used to
+    // be invisible because everything was pinned at the floor.
+    const double worst = std::max({cov[0], cov[1], cov[2]});
+    if (worst > 1.0) {
+      RCLCPP_WARN_THROTTLE(get_logger(), *get_clock(), 2000,
+        "VO position uncertainty high: sigma = %.2f m - EKF2 should be "
+        "down-weighting or gating these samples", std::sqrt(worst));
+    }
 
     px4_odom.reset_counter = _reset_counter;
     px4_odom.quality = 0;  // unknown
@@ -235,6 +360,7 @@ private:
 
   rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr _sub;
   rclcpp::Subscription<px4_msgs::msg::TimesyncStatus>::SharedPtr _timesync_sub;
+  rclcpp::Subscription<geometry_msgs::msg::PoseWithCovarianceStamped>::SharedPtr _cov_sub;
   rclcpp::Publisher<px4_msgs::msg::VehicleOdometry>::SharedPtr _pub;
 };
 
